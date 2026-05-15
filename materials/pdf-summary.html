@@ -3,92 +3,387 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ADsP PDF 기반 요약</title>
+  <title>ADsP PDF 기반 강의노트</title>
   <link rel="stylesheet" href="../assets/style.css">
 </head>
-<body class="note-page">
+<body class="note-page lecture-page">
   <header class="site-header">
     <div class="header-inner">
-      <h1>PDF 기반 요약</h1>
-      <p>source PDF에서 확인한 ADsP 학습 범위를 원문 복제 없이 시험 체크리스트로 재구성했습니다.</p>
+      <h1>ADsP PDF 기반 강의노트</h1>
+      <p>source PDF의 학습 범위를 시험 직전 복습용 강의노트처럼 다시 정리했습니다.</p>
       <div class="top-actions">
         <a class="button secondary" href="./index.html">자료실로 돌아가기</a>
         <a class="button secondary" href="../index.html">메인으로 돌아가기</a>
         <a class="button primary" href="../cbt/adsp_basic_cbt.html">CBT 풀기</a>
+        <a class="button secondary" href="../source/ADsP_완벽대비요약노트_260103-unlocked.pdf">PDF 원본 열기</a>
       </div>
       <div class="auth-status" data-auth-status data-login="../account/login.html" data-profile="../account/profile.html"></div>
     </div>
   </header>
 
   <main class="container">
+    <section class="lecture-hero">
+      <div>
+        <span class="lecture-kicker">ADsP 압축 강의</span>
+        <h2>흐름을 먼저 잡고, 표로 헷갈리는 개념을 끊어내는 노트</h2>
+        <p>원본 PDF를 그대로 옮긴 페이지가 아니라, 시험장에서 보기로 나왔을 때 구분해야 하는 기준을 중심으로 재구성했습니다. 긴 정의보다 “무엇과 헷갈리는가”, “문제에서 어떤 단어로 묻는가”를 먼저 보세요.</p>
+      </div>
+      <div class="lecture-score">
+        <strong>3과목</strong>
+        <span>데이터 이해 → 분석 기획 → 데이터 분석</span>
+      </div>
+    </section>
+
+    <nav class="lecture-nav" aria-label="강의노트 목차">
+      <a href="#subject1">1과목 데이터 이해</a>
+      <a href="#subject2">2과목 분석 기획</a>
+      <a href="#subject3">3과목 데이터 분석</a>
+      <a href="#last-check">시험 직전 체크</a>
+    </nav>
+
+    <section class="section">
+      <div class="lecture-grid">
+        <article class="lecture-card">
+          <span class="lecture-kicker">학습 순서</span>
+          <h3>개념 → 비교 → 함정 → 문제</h3>
+          <p>ADsP는 정의 암기만으로는 헷갈립니다. 예를 들어 DW와 데이터마트, KDD와 CRISP-DM, 정밀도와 재현율처럼 “둘 중 무엇인가”를 묻는 문제가 많습니다.</p>
+        </article>
+        <article class="lecture-card">
+          <span class="lecture-kicker">PDF 반영</span>
+          <h3>원본 + 요약 병행</h3>
+          <p>자료실에서 원본 PDF를 열 수 있고, 이 페이지는 시험용 설명으로 다시 쓴 버전입니다. 모르는 단어가 있으면 이 노트에서 흐름을 보고 원본으로 세부를 확인하세요.</p>
+        </article>
+        <article class="lecture-card">
+          <span class="lecture-kicker">CBT 연결</span>
+          <h3>읽고 바로 풀기</h3>
+          <p>각 과목 핵심을 읽은 뒤 기본 CBT를 풀면 오답이 계정별 학습기록과 오답노트에 저장됩니다.</p>
+        </article>
+      </div>
+    </section>
+
     <article>
-      <h2>반영 방식</h2>
-      <p>PDF 해제본은 텍스트 추출이 가능했고, 사용자가 소유 자료로 공개 가능함을 확인했습니다. 이 페이지는 원문을 그대로 옮기기보다 ADsP 시험 대비 관점에서 주제를 압축하고 설명을 새로 작성한 학습용 요약입니다.</p>
-      <p><a class="button primary" href="../source/ADsP_완벽대비요약노트_260103-unlocked.pdf">PDF 원본 열기</a></p>
+      <section id="subject1" class="anchor-section">
+        <h2>1과목 데이터 이해</h2>
+        <p class="lead">1과목은 “데이터를 어떻게 정의하고, 조직에서 어떻게 저장·활용·관리하는가”를 묻습니다. 용어가 많지만 큰 축은 데이터 개념, 데이터베이스, 빅데이터, 개인정보·윤리, 데이터 사이언스입니다.</p>
 
-      <h2>1과목 데이터 이해 체크리스트</h2>
-      <ul>
-        <li>데이터와 정보의 차이, DIKW 흐름, 암묵지와 형식지 전환 과정을 함께 암기한다.</li>
-        <li>데이터 유형은 형태, 표현 방식, 분석 목적 기준으로 나누어 본다.</li>
-        <li>데이터베이스 특성은 공용성, 통합성, 저장성, 변화성을 중심으로 정리한다.</li>
-        <li>데이터베이스 설계는 요구분석, 개념 설계, 논리 설계, 물리 설계 순서로 이해한다.</li>
-        <li>DBMS, 스키마, 메타데이터, 데이터 사전, 인스턴스, 인덱스를 구분한다.</li>
-        <li>SQL은 DDL, DML, DCL, TCL의 역할을 비교한다.</li>
-        <li>CRM, SCM, ERP, RTE, BI, BA, KMS는 조직 데이터 활용 시스템으로 묶어 비교한다.</li>
-        <li>DW는 ETL, ODS, 주제지향성, 통합성, 시계열성, 비휘발성을 중심으로 정리한다.</li>
-        <li>데이터레이크는 원천·비정형 데이터 보관과 하둡 생태계 연결을 함께 본다.</li>
-        <li>빅데이터는 3V와 확장 V, 가치 산정 어려움, 표본에서 전수로의 변화까지 묻는다.</li>
-        <li>개인정보, 가명정보, 익명정보와 비식별 처리 방법을 구분한다.</li>
-        <li>데이터 사이언스는 분석, IT, 비즈니스 이해와 하드·소프트 스킬을 함께 요구한다.</li>
-      </ul>
+        <div class="concept-block">
+          <span class="lecture-kicker">개념 1</span>
+          <h3>데이터, 정보, 지식, 지혜</h3>
+          <p>데이터는 아직 해석하지 않은 사실입니다. 정보는 목적에 맞게 가공되어 의미를 가진 데이터이고, 지식은 정보를 활용할 수 있는 패턴과 원리입니다. 지혜는 지식을 상황에 맞게 적용해 판단하는 단계입니다.</p>
+          <div class="flow">
+            <span class="flow-step">Data<br><small>사실</small></span>
+            <span class="flow-step">Information<br><small>의미</small></span>
+            <span class="flow-step">Knowledge<br><small>활용 원리</small></span>
+            <span class="flow-step">Wisdom<br><small>판단</small></span>
+          </div>
+          <p class="exam-note">시험 포인트: “가공 전 객관적 사실”은 데이터, “패턴 인식”은 정보, “의사결정 활용”은 지식으로 구분합니다.</p>
+        </div>
 
-      <h2>2과목 분석 기획 체크리스트</h2>
-      <ul>
-        <li>분석 대상과 방법의 명확성에 따라 최적화, 솔루션, 통찰, 발견형 문제로 구분한다.</li>
-        <li>방법론 구성요소는 절차, 방법, 도구·기법, 템플릿·산출물이다.</li>
-        <li>모델 개발 방식은 폭포수, 프로토타입, 나선형, 애자일을 비교한다.</li>
-        <li>KDD는 데이터 선택에서 시작해 전처리, 변환, 마이닝, 평가로 이어진다.</li>
-        <li>CRISP-DM은 업무 이해에서 시작해 전개와 운영 계획까지 포함한다.</li>
-        <li>빅데이터 분석 방법론은 분석 기획, 데이터 준비, 데이터 분석, 시스템 구현, 평가·전개를 포함한다.</li>
-        <li>하향식 접근은 문제탐색, 문제정의, 해결방안탐색, 타당성 검토 순서로 본다.</li>
-        <li>상향식 접근은 데이터 탐색과 프로세스 분류에서 분석 기회를 찾는다.</li>
-        <li>혼합 접근은 발산 단계의 상향식과 수렴 단계의 하향식을 결합한다.</li>
-        <li>프로젝트 관리는 데이터 양, 속도, 복잡성, 분석 복잡성, 정확도·정밀도 균형을 고려한다.</li>
-        <li>분석 로드맵은 도입, 파일럿 검증, 확산·고도화 흐름으로 정리한다.</li>
-        <li>분석 거버넌스는 조직, 프로세스, 시스템, 데이터, 교육·마인드 체계를 함께 갖춘다.</li>
-        <li>분석 수준 진단은 준비도와 성숙도를 결합해 준비형, 정착형, 도입형, 확산형으로 해석한다.</li>
-        <li>분석 조직은 집중 구조, 기능 구조, 분산 구조의 장단점을 비교한다.</li>
-      </ul>
+        <div class="concept-block">
+          <span class="lecture-kicker">개념 2</span>
+          <h3>데이터 유형은 기준별로 따로 외운다</h3>
+          <table>
+            <thead><tr><th>구분 기준</th><th>유형</th><th>예시</th><th>암기 포인트</th></tr></thead>
+            <tbody>
+              <tr><td>형태</td><td>정형</td><td>RDB, 엑셀, CSV</td><td>행과 열, 스키마가 명확</td></tr>
+              <tr><td>형태</td><td>반정형</td><td>HTML, XML, JSON, RDF</td><td>메타 구조는 있으나 고정 테이블은 아님</td></tr>
+              <tr><td>형태</td><td>비정형</td><td>SNS, 영상, 음원, 자유문서</td><td>구조화가 약함</td></tr>
+              <tr><td>표현</td><td>정량</td><td>온도, 풍속, 매출</td><td>수치로 측정</td></tr>
+              <tr><td>표현</td><td>정성</td><td>기상특보, 주관식 응답</td><td>언어와 설명 중심</td></tr>
+            </tbody>
+          </table>
+        </div>
 
-      <h2>3과목 데이터 분석 체크리스트</h2>
-      <ul>
-        <li>데이터 마트, 요약변수, 파생변수는 분석 데이터셋 설계 관점에서 구분한다.</li>
-        <li>EDA는 저항성, 잔차, 재표현, 시각화를 통해 데이터의 구조를 확인한다.</li>
-        <li>결측값은 삭제, 평균 대치, 확률 대치, 다중 대치로 처리할 수 있다.</li>
-        <li>이상값은 표준편차, IQR, Z-score, 밀도 기반 방법으로 탐지하며 무조건 제거하지 않는다.</li>
-        <li>척도는 명목, 서열, 등간, 비율로 나누고 가능한 연산 수준을 구분한다.</li>
-        <li>표본추출은 랜덤, 계통, 집락, 층화, 복원·비복원 방식으로 비교한다.</li>
-        <li>확률분포는 이산분포와 연속분포를 나누어 대표 예시와 사용 검정을 연결한다.</li>
-        <li>중심극한정리, 표준오차, 점추정의 조건, 구간추정을 함께 암기한다.</li>
-        <li>가설검정은 귀무가설, 대립가설, 유의수준, p-value, 단측·양측, 표본 구조를 순서대로 판단한다.</li>
-        <li>모수 검정과 비모수 검정은 분포 가정 가능 여부와 자료 척도에 따라 선택한다.</li>
-        <li>회귀분석은 잔차, 최소제곱법, 결정계수, 선형회귀 가정, 다중공선성, 변수 선택 기준을 함께 본다.</li>
-        <li>PCA는 분산을 많이 설명하는 직교 주성분으로 차원을 줄이며, 스크리플롯과 설명력을 확인한다.</li>
-        <li>MDS는 거리 정보의 근접성을 보존해 저차원 공간에 표현한다.</li>
-        <li>시계열은 추세, 계절, 순환, 불규칙 요인과 정상성, 차분, AR·MA·ARIMA를 연결한다.</li>
-        <li>데이터 마이닝은 지도학습과 비지도학습을 구분하고 과대적합·과소적합, 교차검증을 함께 이해한다.</li>
-        <li>분류 알고리즘은 로지스틱 회귀, KNN, 나이브베이즈, 의사결정나무, SVM, 앙상블, 신경망을 비교한다.</li>
-        <li>평가지표는 혼동행렬, 재현율, 정밀도, F1, ROC-AUC, Lift chart를 상황별로 고른다.</li>
-        <li>군집분석은 거리 측정, 연결법, K-means, DBSCAN, 실루엣 계수, Elbow Method를 연결한다.</li>
-        <li>연관분석은 지지도, 신뢰도, 향상도, Apriori, FP-Growth를 묶어 암기한다.</li>
-      </ul>
+        <div class="concept-block">
+          <span class="lecture-kicker">개념 3</span>
+          <h3>데이터베이스와 분석 저장소</h3>
+          <p>데이터베이스는 조직 업무에 필요한 데이터를 저장·관리하는 체계입니다. 시험에서는 DB 자체보다 DBMS, 스키마, 메타데이터, 데이터 사전, 인덱스, SQL 기능을 구분하는 문제가 나옵니다.</p>
+          <table>
+            <thead><tr><th>용어</th><th>설명</th><th>헷갈리는 부분</th></tr></thead>
+            <tbody>
+              <tr><td>DBMS</td><td>데이터베이스 관리 소프트웨어</td><td>MySQL, Oracle 같은 관리 시스템</td></tr>
+              <tr><td>스키마</td><td>DB 구조와 제약조건 명세</td><td>데이터 값 자체가 아니라 구조</td></tr>
+              <tr><td>메타데이터</td><td>데이터를 설명하는 데이터</td><td>컬럼 의미, 출처, 형식</td></tr>
+              <tr><td>데이터 사전</td><td>메타데이터와 구조 정보를 저장</td><td>시스템 내부 기준 정보</td></tr>
+              <tr><td>인덱스</td><td>검색과 정렬을 돕는 보조 구조</td><td>저장공간은 더 쓰지만 조회를 빠르게 함</td></tr>
+            </tbody>
+          </table>
+          <div class="mini-check">
+            <strong>SQL 빠른 구분</strong>
+            <span>DDL: CREATE, ALTER, DROP</span>
+            <span>DML: SELECT, INSERT, UPDATE, DELETE</span>
+            <span>DCL: GRANT, REVOKE</span>
+            <span>TCL: COMMIT, ROLLBACK</span>
+          </div>
+        </div>
 
-      <h2>우선 암기 순서</h2>
-      <ol>
-        <li>1과목은 데이터 유형, DW/DM, 빅데이터 V, 개인정보 분류를 먼저 정리한다.</li>
-        <li>2과목은 KDD, CRISP-DM, 하향식·상향식, 거버넌스 구성요소를 먼저 정리한다.</li>
-        <li>3과목은 가설검정, 회귀, 분류 지표, 군집·연관 지표를 반복 풀이한다.</li>
-      </ol>
+        <div class="concept-block">
+          <span class="lecture-kicker">개념 4</span>
+          <h3>DW, 데이터마트, 데이터레이크</h3>
+          <p>DW는 전사 데이터를 분석 목적으로 통합한 중앙 저장소입니다. 데이터마트는 특정 부서나 주제에 맞춘 작은 분석 저장소입니다. 데이터레이크는 정형·반정형·비정형 원천 데이터를 폭넓게 저장해 이후 분석에 활용하는 구조입니다.</p>
+          <table>
+            <thead><tr><th>구분</th><th>목적</th><th>핵심 키워드</th></tr></thead>
+            <tbody>
+              <tr><td>DW</td><td>전사 의사결정 지원</td><td>주제지향, 통합, 시계열, 비휘발</td></tr>
+              <tr><td>ODS</td><td>운영계 데이터를 임시 통합</td><td>DW 적재 전 중간 저장</td></tr>
+              <tr><td>ETL</td><td>데이터 추출·변환·적재</td><td>Extraction, Transform, Load</td></tr>
+              <tr><td>Data Mart</td><td>부서·주제별 분석</td><td>DW보다 작고 목적이 좁음</td></tr>
+              <tr><td>Data Lake</td><td>다양한 원천 데이터 저장</td><td>하둡, HDFS, MapReduce와 연결</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="concept-block">
+          <span class="lecture-kicker">개념 5</span>
+          <h3>빅데이터와 개인정보</h3>
+          <p>빅데이터는 양이 많은 데이터만 뜻하지 않습니다. 규모, 다양성, 속도에 더해 가치, 신뢰성, 정확성, 휘발성 같은 확장 요소를 함께 봅니다. 개인정보 영역은 개인정보, 가명정보, 익명정보와 비식별 처리 방법을 구분해야 합니다.</p>
+          <div class="lecture-grid">
+            <div class="lecture-card compact">
+              <h3>3V</h3>
+              <p>Volume, Variety, Velocity</p>
+            </div>
+            <div class="lecture-card compact">
+              <h3>확장 V</h3>
+              <p>Value, Veracity, Validity, Volatility</p>
+            </div>
+            <div class="lecture-card compact">
+              <h3>비식별 처리</h3>
+              <p>가명처리, 총계처리, 삭제, 범주화, 마스킹</p>
+            </div>
+          </div>
+          <p class="exam-note">시험 포인트: 가명정보는 추가정보 없이는 특정 개인을 알아보기 어렵게 처리한 정보이고, 익명정보는 더 이상 개인 식별이 불가능한 정보입니다.</p>
+        </div>
+      </section>
+
+      <section id="subject2" class="anchor-section">
+        <h2>2과목 데이터 분석 기획</h2>
+        <p class="lead">2과목은 분석을 시작하기 전 “문제를 어떻게 찾고, 어떤 방법론과 조직 체계로 실행할 것인가”를 묻습니다. 순서와 구분 문제가 많습니다.</p>
+
+        <div class="concept-block">
+          <span class="lecture-kicker">개념 1</span>
+          <h3>분석 방법론 큰 그림</h3>
+          <p>분석 방법론은 절차, 방법, 도구와 기법, 템플릿과 산출물로 구성됩니다. 개발 모델은 폭포수, 프로토타입, 나선형, 애자일을 비교하고, 분석 절차는 KDD와 CRISP-DM 순서를 확실히 외웁니다.</p>
+          <div class="flow">
+            <span class="flow-step">KDD<br><small>선택</small></span>
+            <span class="flow-step">전처리</span>
+            <span class="flow-step">변환</span>
+            <span class="flow-step">마이닝</span>
+            <span class="flow-step">평가</span>
+          </div>
+          <div class="flow">
+            <span class="flow-step">CRISP-DM<br><small>업무 이해</small></span>
+            <span class="flow-step">데이터 이해</span>
+            <span class="flow-step">데이터 준비</span>
+            <span class="flow-step">모델링</span>
+            <span class="flow-step">평가</span>
+            <span class="flow-step">전개</span>
+          </div>
+        </div>
+
+        <div class="concept-block">
+          <span class="lecture-kicker">개념 2</span>
+          <h3>하향식, 상향식, 혼합 접근</h3>
+          <table>
+            <thead><tr><th>접근</th><th>출발점</th><th>흐름</th><th>대표 함정</th></tr></thead>
+            <tbody>
+              <tr><td>하향식</td><td>비즈니스 문제</td><td>문제탐색 → 문제정의 → 해결방안탐색 → 타당성 검토</td><td>데이터 탐색 출발이 아님</td></tr>
+              <tr><td>상향식</td><td>데이터와 현상</td><td>프로세스 분류 → 프로세스 흐름 분석 → 분석 요건 발굴</td><td>목적이 없다는 뜻은 아님</td></tr>
+              <tr><td>혼합</td><td>발산과 수렴</td><td>상향식으로 아이디어 발산, 하향식으로 과제 수렴</td><td>디자인 싱킹과 함께 출제 가능</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="concept-block">
+          <span class="lecture-kicker">개념 3</span>
+          <h3>분석 과제와 프로젝트 관리</h3>
+          <p>분석 과제는 정의서와 활용 시나리오가 중요합니다. 정의서는 분석 계획 수립의 입력 자료이고, 활용 시나리오는 분석 결과를 업무에 어떻게 적용할지 설명하는 실행 문서입니다.</p>
+          <div class="mini-check">
+            <strong>분석 과제에서 보는 5요소</strong>
+            <span>데이터 양</span>
+            <span>데이터 속도</span>
+            <span>데이터 복잡성</span>
+            <span>분석 복잡성</span>
+            <span>정확도와 정밀도 균형</span>
+          </div>
+          <p class="exam-note">주의: 여기서의 정확도·정밀도는 프로젝트 품질 관점입니다. 3과목 혼동행렬의 Accuracy·Precision과 문맥이 다릅니다.</p>
+        </div>
+
+        <div class="concept-block">
+          <span class="lecture-kicker">개념 4</span>
+          <h3>마스터 플랜과 분석 거버넌스</h3>
+          <p>마스터 플랜은 중장기 분석 로드맵입니다. 데이터 기반 의사결정을 조직에 정착시키기 위해 도입, 유효성 검증, 확산·고도화 흐름으로 추진합니다.</p>
+          <table>
+            <thead><tr><th>구분</th><th>설명</th><th>암기 기준</th></tr></thead>
+            <tbody>
+              <tr><td>우선순위</td><td>시급성, 난이도, ROI, 전략 중요도를 함께 평가</td><td>가치와 실행 가능성</td></tr>
+              <tr><td>거버넌스</td><td>조직, 프로세스, 시스템, 데이터, 교육·마인드</td><td>체계 운영</td></tr>
+              <tr><td>준비도</td><td>데이터, 인력, 조직, 분석업무, 기법, 인프라</td><td>분석을 할 준비가 되었는가</td></tr>
+              <tr><td>성숙도</td><td>분석 활용 수준을 단계적으로 진단</td><td>현재 얼마나 잘 활용하는가</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="concept-block">
+          <span class="lecture-kicker">개념 5</span>
+          <h3>분석 조직 구조</h3>
+          <table>
+            <thead><tr><th>구조</th><th>설명</th><th>장단점</th></tr></thead>
+            <tbody>
+              <tr><td>집중 구조</td><td>독립 분석 전담 조직</td><td>전문성은 높지만 현업 중복 이슈 가능</td></tr>
+              <tr><td>기능 구조</td><td>현업 부서가 직접 분석</td><td>업무 이해는 높지만 전담 조직은 없음</td></tr>
+              <tr><td>분산 구조</td><td>분석 인력을 현업에 배치</td><td>전문성과 현업성을 절충</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="subject3" class="anchor-section">
+        <h2>3과목 데이터 분석</h2>
+        <p class="lead">3과목은 범위가 넓지만 출제 방식은 비교적 정형적입니다. 전처리, 통계, 회귀, 차원축소, 시계열, 데이터마이닝, 평가 지표를 묶어서 봅니다.</p>
+
+        <div class="concept-block">
+          <span class="lecture-kicker">개념 1</span>
+          <h3>데이터 마트, 변수, EDA</h3>
+          <p>분석 데이터는 원천 데이터에서 바로 모델로 가지 않습니다. DW와 데이터마트를 거치며 분석 목적에 맞는 요약변수와 파생변수를 만듭니다. EDA는 통계량과 시각화로 데이터의 특성을 보는 탐색 단계입니다.</p>
+          <table>
+            <thead><tr><th>구분</th><th>설명</th><th>예시</th></tr></thead>
+            <tbody>
+              <tr><td>요약변수</td><td>수집 정보를 종합한 재사용 가능 변수</td><td>최근 1개월 구매금액</td></tr>
+              <tr><td>파생변수</td><td>논리적 의미를 부여해 만든 변수</td><td>고객구매등급</td></tr>
+              <tr><td>EDA</td><td>통계·그래프로 자료 구조 파악</td><td>저항성, 잔차, 재표현, 시각화</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="concept-block">
+          <span class="lecture-kicker">개념 2</span>
+          <h3>결측값과 이상값</h3>
+          <p>결측값은 삭제하거나 대치할 수 있고, 이상값은 오류일 수도 있지만 중요한 신호일 수도 있습니다. 시험에서는 “무조건 제거”가 함정입니다.</p>
+          <div class="lecture-grid">
+            <div class="lecture-card compact">
+              <h3>결측값 처리</h3>
+              <p>완전분석, 평균대치, Hot-Deck, Cold-Deck, Nearest Neighbor, 다중대치</p>
+            </div>
+            <div class="lecture-card compact">
+              <h3>이상값 탐지</h3>
+              <p>3표준편차, IQR, Z-score, DBSCAN</p>
+            </div>
+            <div class="lecture-card compact">
+              <h3>판단 기준</h3>
+              <p>업무 오류인지 의미 있는 극단값인지 먼저 확인</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="concept-block">
+          <span class="lecture-kicker">개념 3</span>
+          <h3>통계 기본과 가설검정</h3>
+          <table>
+            <thead><tr><th>주제</th><th>핵심 설명</th><th>시험 문장</th></tr></thead>
+            <tbody>
+              <tr><td>척도</td><td>명목, 서열, 등간, 비율</td><td>가능한 연산 수준을 묻는다</td></tr>
+              <tr><td>표본추출</td><td>랜덤, 계통, 집락, 층화</td><td>집락은 군집 내 이질, 층화는 층 내 동질</td></tr>
+              <tr><td>중심극한정리</td><td>표본크기가 충분하면 표본평균은 정규분포에 가까움</td><td>모집단 분포와 무관하다는 표현 주의</td></tr>
+              <tr><td>점추정</td><td>하나의 값으로 모수를 추정</td><td>불편성, 효율성, 일치성, 충족성</td></tr>
+              <tr><td>가설검정</td><td>p-value와 유의수준 비교</td><td>p-value &lt; α이면 귀무가설 기각</td></tr>
+            </tbody>
+          </table>
+          <p class="exam-note">p-value는 귀무가설이 참일 확률이 아닙니다. 귀무가설이 참이라고 가정했을 때 관측 결과 이상이 나올 확률입니다.</p>
+        </div>
+
+        <div class="concept-block">
+          <span class="lecture-kicker">개념 4</span>
+          <h3>회귀분석은 해석 순서가 중요하다</h3>
+          <p>회귀분석은 독립변수로 종속변수를 설명하거나 예측합니다. 먼저 모형 전체가 유의한지 보고, 그다음 개별 회귀계수가 유의한지 봅니다. 다중회귀에서는 R-square보다 수정된 R-square를 함께 확인합니다.</p>
+          <div class="flow">
+            <span class="flow-step">변수 설정</span>
+            <span class="flow-step">회귀계수 추정</span>
+            <span class="flow-step">F검정<br><small>모형 유의성</small></span>
+            <span class="flow-step">t검정<br><small>계수 유의성</small></span>
+            <span class="flow-step">설명력 확인</span>
+          </div>
+          <div class="mini-check">
+            <strong>회귀 함정</strong>
+            <span>상관은 인과를 보장하지 않음</span>
+            <span>VIF 10 이상이면 다중공선성 의심</span>
+            <span>AIC와 BIC는 작을수록 선호</span>
+            <span>선형성, 등분산성, 정규성, 독립성 확인</span>
+          </div>
+        </div>
+
+        <div class="concept-block">
+          <span class="lecture-kicker">개념 5</span>
+          <h3>PCA, MDS, 시계열</h3>
+          <table>
+            <thead><tr><th>기법</th><th>무엇을 하는가</th><th>핵심 포인트</th></tr></thead>
+            <tbody>
+              <tr><td>PCA</td><td>상관 높은 변수들을 주성분으로 변환</td><td>분산이 큰 축, 직교, 설명력, 스크리플롯</td></tr>
+              <tr><td>MDS</td><td>거리 정보를 보존해 저차원에 배치</td><td>Stress 값이 낮을수록 좋음</td></tr>
+              <tr><td>시계열</td><td>시간 순서 자료로 미래 예측</td><td>추세, 계절, 순환, 불규칙 요인</td></tr>
+              <tr><td>ARIMA</td><td>AR, 차분, MA를 결합</td><td>p는 AR, d는 차분, q는 MA</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="concept-block">
+          <span class="lecture-kicker">개념 6</span>
+          <h3>데이터 마이닝과 모델 평가</h3>
+          <p>데이터 마이닝은 대량 데이터에서 규칙과 패턴을 찾는 과정입니다. 지도학습은 정답이 있고, 비지도학습은 정답 없이 구조를 찾습니다.</p>
+          <table>
+            <thead><tr><th>분류</th><th>대표 기법</th><th>핵심 설명</th></tr></thead>
+            <tbody>
+              <tr><td>지도학습</td><td>로지스틱 회귀, KNN, 나이브베이즈, 의사결정나무, SVM, 앙상블, 신경망</td><td>정답 레이블로 분류·회귀 학습</td></tr>
+              <tr><td>비지도학습</td><td>군집분석, 연관분석, 차원축소</td><td>정답 없이 유사성·패턴 탐색</td></tr>
+              <tr><td>검증</td><td>Hold-out, K-fold, LOOCV, Bootstrap</td><td>과대적합과 과소적합 점검</td></tr>
+            </tbody>
+          </table>
+          <div class="mini-check">
+            <strong>분류 평가 지표</strong>
+            <span>정확도: 전체 중 맞힌 비율</span>
+            <span>정밀도: 양성 예측 중 실제 양성</span>
+            <span>재현율: 실제 양성 중 맞힌 비율</span>
+            <span>F1: 정밀도와 재현율의 조화평균</span>
+            <span>ROC-AUC: 1에 가까울수록 좋음</span>
+          </div>
+        </div>
+
+        <div class="concept-block">
+          <span class="lecture-kicker">개념 7</span>
+          <h3>군집분석과 연관분석</h3>
+          <table>
+            <thead><tr><th>영역</th><th>핵심 개념</th><th>시험 포인트</th></tr></thead>
+            <tbody>
+              <tr><td>거리</td><td>유클리디안, 맨하튼, 체비셰프, 민코우스키, 마할라노비스</td><td>거리 기반 기법은 스케일 영향 주의</td></tr>
+              <tr><td>연결법</td><td>최단, 최장, 평균, 중심, 와드</td><td>계층적 군집에서 사용</td></tr>
+              <tr><td>K-means</td><td>K를 정하고 중심을 반복 갱신</td><td>초기 중심과 이상치에 민감</td></tr>
+              <tr><td>DBSCAN</td><td>밀도 기반 군집</td><td>K를 사전에 정하지 않아도 되고 노이즈에 강함</td></tr>
+              <tr><td>연관분석</td><td>지지도, 신뢰도, 향상도</td><td>향상도 1보다 크면 양의 연관</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="last-check" class="anchor-section">
+        <h2>시험 직전 체크</h2>
+        <div class="lecture-grid">
+          <article class="lecture-card">
+            <span class="lecture-kicker">1과목</span>
+            <h3>용어 비교</h3>
+            <p>DIKW, 정형·반정형·비정형, DW·DM·데이터레이크, 개인정보·가명정보·익명정보를 표로 다시 봅니다.</p>
+          </article>
+          <article class="lecture-card">
+            <span class="lecture-kicker">2과목</span>
+            <h3>절차 암기</h3>
+            <p>KDD, CRISP-DM, 하향식 접근, 거버넌스 구성요소, 분석 수준 진단을 순서대로 말할 수 있어야 합니다.</p>
+          </article>
+          <article class="lecture-card">
+            <span class="lecture-kicker">3과목</span>
+            <h3>지표 구분</h3>
+            <p>p-value, R-square, VIF, 정밀도, 재현율, ROC-AUC, 실루엣, 지지도·신뢰도·향상도를 마지막에 확인하세요.</p>
+          </article>
+        </div>
+        <p class="summary-box">읽기만 하면 금방 잊습니다. 이 페이지를 본 뒤 <a href="../cbt/adsp_basic_cbt.html">기본 CBT</a>를 풀고, 틀린 문제는 <a href="../review/wrong-notes.html">오답노트</a>에서 다시 확인하세요.</p>
+      </section>
     </article>
   </main>
 

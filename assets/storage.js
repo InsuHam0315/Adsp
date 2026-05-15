@@ -2,6 +2,7 @@
   "use strict";
 
   var STORAGE_KEY = "adspStudyData";
+  var CURRENT_USER_KEY = "adspCurrentUser";
 
   function defaultData() {
     return {
@@ -38,9 +39,26 @@
     });
   }
 
+  function getActiveUser() {
+    try {
+      var raw = localStorage.getItem(CURRENT_USER_KEY);
+      return raw ? JSON.parse(raw) : null;
+    } catch (error) {
+      return null;
+    }
+  }
+
+  function getStorageKey() {
+    var user = getActiveUser();
+    if (user && user.username) {
+      return "adspStudyData:user:" + encodeURIComponent(user.username);
+    }
+    return STORAGE_KEY;
+  }
+
   function getStudyData() {
     try {
-      var raw = localStorage.getItem(STORAGE_KEY);
+      var raw = localStorage.getItem(getStorageKey());
       return mergeData(raw ? JSON.parse(raw) : null);
     } catch (error) {
       return defaultData();
@@ -49,7 +67,7 @@
 
   function saveStudyData(data) {
     var normalized = mergeData(data);
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(normalized));
+    localStorage.setItem(getStorageKey(), JSON.stringify(normalized));
     return normalized;
   }
 
@@ -115,7 +133,9 @@
     saveStudyData: saveStudyData,
     resetStudyData: resetStudyData,
     recordAnswer: recordAnswer,
-    exportStudyData: exportStudyData
+    exportStudyData: exportStudyData,
+    getActiveUser: getActiveUser,
+    getStorageKey: getStorageKey
   };
 
   window.getStudyData = getStudyData;

@@ -15,7 +15,9 @@
         <a class="button secondary" href="./index.html">개념정리 목록</a>
         <a class="button secondary" href="../index.html">메인으로 돌아가기</a>
         <a class="button primary" href="../cbt/adsp_basic_cbt.html">관련 CBT 풀러 가기</a>
+        <a class="button secondary" href="../account/login.html">로그인/회원가입</a>
       </div>
+      <div class="auth-status" data-auth-status data-login="../account/login.html" data-profile="../account/profile.html"></div>
     </div>
   </header>
 
@@ -67,6 +69,52 @@
 
       <h3>빅데이터 분석 방법론</h3>
       <p>빅데이터 분석 방법론은 분석 기획, 데이터 준비, 데이터 분석, 시스템 구현, 평가 및 전개처럼 대규모 데이터 처리와 운영 반영을 포함한다. 데이터 수집·저장·처리 인프라 고려가 중요하다.</p>
+
+      <h2>심화 개념 보강</h2>
+      <h3>분석 과제 발굴 프레임</h3>
+      <p>분석 과제는 업무 목표, 고객 경험, 프로세스 병목, 비용 구조, 위험 관리, 데이터 탐색 결과에서 찾는다. 시험에서는 아이디어 발굴보다 과제화 과정이 중요하며, 분석 문제는 측정 가능한 목표와 활용 시나리오로 바뀌어야 한다.</p>
+
+      <h3>문제 정의 체크리스트</h3>
+      <ul>
+        <li>누가 어떤 의사결정을 개선하려는가?</li>
+        <li>현재 문제를 보여주는 지표는 무엇인가?</li>
+        <li>분석 결과가 실제 업무 프로세스 어디에 반영되는가?</li>
+        <li>필요한 데이터의 소유자, 품질, 접근 권한은 확인되었는가?</li>
+        <li>성과 기준은 정확도, 비용 절감, 시간 단축, 매출 증가 중 무엇인가?</li>
+      </ul>
+
+      <h3>과제 우선순위 매트릭스</h3>
+      <table>
+        <thead><tr><th>구분</th><th>의미</th><th>판단</th></tr></thead>
+        <tbody>
+          <tr><td>가치 높음·난이도 낮음</td><td>효과가 빠르고 실행 가능</td><td>우선 추진</td></tr>
+          <tr><td>가치 높음·난이도 높음</td><td>전략 과제이나 준비 필요</td><td>단계적 추진 또는 PoC</td></tr>
+          <tr><td>가치 낮음·난이도 낮음</td><td>운영 개선성 과제</td><td>여유 자원으로 검토</td></tr>
+          <tr><td>가치 낮음·난이도 높음</td><td>투자 대비 효과 낮음</td><td>보류 또는 제외</td></tr>
+        </tbody>
+      </table>
+
+      <h3>분석 프로젝트 산출물</h3>
+      <p>대표 산출물은 과제 정의서, 데이터 요구사항, 데이터 품질 진단 결과, 분석 설계서, 모델 결과 보고서, 성능 평가표, 운영 반영 계획, 모니터링 기준이다. 산출물은 보고용 문서가 아니라 이해관계자 합의와 운영 전개의 근거다.</p>
+
+      <h3>CRISP-DM 단계별 핵심</h3>
+      <table>
+        <thead><tr><th>단계</th><th>핵심 활동</th></tr></thead>
+        <tbody>
+          <tr><td>비즈니스 이해</td><td>업무 목표, 성공 기준, 제약 조건 정의</td></tr>
+          <tr><td>데이터 이해</td><td>데이터 수집, 탐색, 품질 확인</td></tr>
+          <tr><td>데이터 준비</td><td>정제, 통합, 파생변수 생성, 분석 데이터셋 구성</td></tr>
+          <tr><td>모델링</td><td>기법 선택, 학습, 파라미터 조정</td></tr>
+          <tr><td>평가</td><td>비즈니스 목표와 모델 성능을 함께 검토</td></tr>
+          <tr><td>전개</td><td>운영 적용, 보고, 모니터링, 유지관리</td></tr>
+        </tbody>
+      </table>
+
+      <h3>KDD와 데이터 마이닝의 관계</h3>
+      <p>KDD는 지식 발견 전체 절차이고, 데이터 마이닝은 그 안에서 패턴을 찾는 핵심 단계다. 따라서 데이터 마이닝과 KDD를 같은 뜻으로 보는 보기는 시험에서 함정이 될 수 있다.</p>
+
+      <h3>분석 거버넌스 운영 포인트</h3>
+      <p>분석 거버넌스는 분석 조직을 만드는 것에서 끝나지 않는다. 표준 방법론, 공통 데이터 플랫폼, 모델 운영 기준, 성과 측정 방식, 개인정보와 보안 기준, 재사용 가능한 분석 자산 관리까지 포함한다.</p>
 
       <h2>자주 나오는 용어</h2>
       <table>
@@ -141,5 +189,6 @@
       <p><a class="button primary" href="../cbt/adsp_basic_cbt.html">ADsP 기본 CBT로 이동</a></p>
     </article>
   </main>
+  <script src="../assets/auth.js"></script>
 </body>
 </html>

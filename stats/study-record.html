@@ -14,7 +14,9 @@
       <div class="top-actions">
         <a class="button secondary" href="../index.html">메인으로 돌아가기</a>
         <a class="button primary" href="../cbt/adsp_basic_cbt.html">기본 CBT로 이동</a>
+        <a class="button secondary" href="../account/login.html">로그인/회원가입</a>
       </div>
+      <div class="auth-status" data-auth-status data-login="../account/login.html" data-profile="../account/profile.html"></div>
     </div>
   </header>
 
@@ -26,6 +28,7 @@
         <button type="button" id="resetButton" class="danger">학습 기록 초기화</button>
       </div>
       <div class="stats-grid">
+        <div class="metric"><strong id="currentAccount">게스트</strong><span>현재 계정</span></div>
         <div class="metric"><strong id="totalAnswered">0</strong><span>총 풀이 수</span></div>
         <div class="metric"><strong id="correctCount">0</strong><span>정답 수</span></div>
         <div class="metric"><strong id="wrongCount">0</strong><span>오답 수</span></div>
@@ -46,6 +49,7 @@
   </main>
 
   <script src="../assets/storage.js"></script>
+  <script src="../assets/auth.js"></script>
   <script>
     (function () {
       "use strict";
@@ -61,6 +65,8 @@
 
       function render() {
         var data = window.ADSPStorage.getStudyData();
+        var user = window.ADSPStorage.getActiveUser();
+        document.getElementById("currentAccount").textContent = user ? (user.displayName || user.username) : "게스트";
         document.getElementById("totalAnswered").textContent = data.totalAnswered;
         document.getElementById("correctCount").textContent = data.correctCount;
         document.getElementById("wrongCount").textContent = data.wrongCount;

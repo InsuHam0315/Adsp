@@ -7,9 +7,14 @@
 ```text
 adsp/
 ├─ index.html
+├─ account/
+│  ├─ login.html
+│  └─ profile.html
 ├─ cbt/
 │  ├─ adsp_basic_cbt.html
 │  └─ adsp_mock_01.html
+├─ materials/
+│  └─ index.html
 ├─ notes/
 │  ├─ index.html
 │  ├─ data-understanding.html
@@ -25,6 +30,7 @@ adsp/
 ├─ assets/
 │  ├─ style.css
 │  ├─ storage.js
+│  ├─ auth.js
 │  └─ cbt.js
 ├─ source/
 │  └─ README.md
@@ -80,9 +86,20 @@ python -m http.server 8000
 6. 유료 교재·강의자료로 보이는 자료는 원문 복제 금지
 7. 변환 후 사람이 반드시 검수
 
+현재 `source/ADsP_완벽대비요약노트_260103.pdf`는 암호화되어 자동 텍스트 추출이 불가능했습니다. 사이트의 `materials/index.html`에 자료 상태를 표시했으며, 공개 가능 여부가 확인되기 전까지 원본 PDF는 GitHub Pages 배포 대상에서 제외합니다.
+
+## 로그인 / 회원가입
+
+- `account/login.html`에서 로컬 계정을 만들 수 있습니다.
+- 서버가 없는 정적 사이트이므로 실제 서버 인증이 아닙니다.
+- 계정 정보와 학습기록은 같은 브라우저의 localStorage에 저장됩니다.
+- 로그인하면 `adspStudyData:user:{아이디}` 키로 계정별 학습기록이 분리됩니다.
+- 로그인하지 않은 상태의 기록은 기존 `adspStudyData` 키에 저장됩니다.
+
 ## localStorage 저장 한계
 
 - 학습기록과 오답노트는 `adspStudyData` 키로 같은 브라우저에만 저장됩니다.
+- 로그인한 경우 계정별 키로 분리되어 저장됩니다.
 - 브라우저 데이터 삭제 시 사라질 수 있습니다.
 - 기기 간 자동 동기화는 없습니다.
 - JSON 내보내기 기능으로 백업할 수 있습니다.

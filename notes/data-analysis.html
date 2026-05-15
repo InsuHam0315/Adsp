@@ -15,7 +15,9 @@
         <a class="button secondary" href="./index.html">개념정리 목록</a>
         <a class="button secondary" href="../index.html">메인으로 돌아가기</a>
         <a class="button primary" href="../cbt/adsp_basic_cbt.html">관련 CBT 풀러 가기</a>
+        <a class="button secondary" href="../account/login.html">로그인/회원가입</a>
       </div>
+      <div class="auth-status" data-auth-status data-login="../account/login.html" data-profile="../account/profile.html"></div>
     </div>
   </header>
 
@@ -76,6 +78,57 @@
 
       <h3>모델 평가와 과적합</h3>
       <p>모델 평가는 문제 유형에 맞는 지표로 수행한다. 분류는 정확도, 정밀도, 재현율, F1, ROC-AUC를 쓸 수 있고 회귀는 MAE, MSE, RMSE, R²를 쓴다. 과적합은 학습 데이터에는 잘 맞지만 새로운 데이터에는 성능이 낮은 상태다.</p>
+
+      <h2>심화 개념 보강</h2>
+      <h3>척도와 변수 유형</h3>
+      <table>
+        <thead><tr><th>척도</th><th>특징</th><th>예시</th></tr></thead>
+        <tbody>
+          <tr><td>명목척도</td><td>분류만 가능, 순서 없음</td><td>성별, 지역, 상품군</td></tr>
+          <tr><td>서열척도</td><td>순서는 있으나 간격 의미 약함</td><td>만족도 등급, 순위</td></tr>
+          <tr><td>등간척도</td><td>간격 의미 있음, 절대 0 없음</td><td>섭씨온도</td></tr>
+          <tr><td>비율척도</td><td>간격과 비율 모두 의미 있음</td><td>매출, 나이, 거리</td></tr>
+        </tbody>
+      </table>
+
+      <h3>검정 방법 선택</h3>
+      <p>평균 차이를 볼 때 두 집단이면 t-검정, 세 집단 이상이면 분산분석(ANOVA)을 떠올린다. 범주형 변수 간 관련성은 카이제곱 검정을 자주 사용한다. 시험에서는 검정 이름보다 어떤 상황에 쓰는지를 묻는 경우가 많다.</p>
+
+      <h3>오류의 종류</h3>
+      <p>제1종 오류는 참인 귀무가설을 잘못 기각하는 오류이고, 제2종 오류는 거짓인 귀무가설을 기각하지 못하는 오류다. 유의수준은 제1종 오류를 허용하는 기준으로 이해한다.</p>
+
+      <h3>회귀분석 해석 포인트</h3>
+      <ul>
+        <li>회귀계수는 다른 조건이 같을 때 독립변수 변화가 종속변수에 미치는 방향과 크기를 나타낸다.</li>
+        <li>결정계수 R²는 모델이 종속변수 변동을 얼마나 설명하는지 보여준다.</li>
+        <li>다중공선성은 독립변수끼리 상관이 높아 계수 해석이 불안정해지는 문제다.</li>
+        <li>잔차 분석은 회귀 모형의 가정과 이상 패턴을 확인하는 데 사용한다.</li>
+      </ul>
+
+      <h3>혼동행렬과 분류 지표</h3>
+      <table>
+        <thead><tr><th>지표</th><th>의미</th><th>시험 포인트</th></tr></thead>
+        <tbody>
+          <tr><td>정확도</td><td>전체 중 맞힌 비율</td><td>불균형 데이터에서는 과신 금지</td></tr>
+          <tr><td>정밀도</td><td>양성 예측 중 실제 양성 비율</td><td>오탐 비용이 클 때 중요</td></tr>
+          <tr><td>재현율</td><td>실제 양성 중 맞힌 비율</td><td>미탐 비용이 클 때 중요</td></tr>
+          <tr><td>F1</td><td>정밀도와 재현율의 조화평균</td><td>두 지표 균형</td></tr>
+          <tr><td>ROC-AUC</td><td>분류 임계값 변화에 따른 성능</td><td>전반적 구분 능력</td></tr>
+        </tbody>
+      </table>
+
+      <h3>군집분석 추가 포인트</h3>
+      <p>K-means는 거리 기반이므로 변수 스케일에 민감하다. 계층적 군집분석은 관측치를 단계적으로 묶거나 나누며 덴드로그램으로 결과를 볼 수 있다. 군집분석은 정답 레이블이 없기 때문에 해석과 업무 활용 가능성 검토가 중요하다.</p>
+
+      <h3>연관분석 지표</h3>
+      <ul>
+        <li>지지도: 전체 거래 중 A와 B가 함께 나타난 비율</li>
+        <li>신뢰도: A가 나타난 거래 중 B도 나타난 비율</li>
+        <li>향상도: A와 B의 관계가 우연 대비 얼마나 강한지 나타내는 비율</li>
+      </ul>
+
+      <h3>전처리와 모델링 연결</h3>
+      <p>결측치 처리, 이상치 판단, 스케일링, 범주형 변수 인코딩, 학습·검증 데이터 분리는 모델 성능에 직접 영향을 준다. 전처리는 단순 청소가 아니라 분석 목적과 모델 특성에 맞춘 데이터 설계 단계다.</p>
 
       <h2>자주 나오는 용어</h2>
       <table>
@@ -162,5 +215,6 @@
       <p><a class="button primary" href="../cbt/adsp_basic_cbt.html">ADsP 기본 CBT로 이동</a></p>
     </article>
   </main>
+  <script src="../assets/auth.js"></script>
 </body>
 </html>

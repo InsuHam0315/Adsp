@@ -11,6 +11,7 @@ runtime-check.html
 # Keep raw third-party source materials local unless publication is reviewed.
 # Commit summarized notes/questions instead of unreviewed originals.
 source/*.pdf
+!source/*unlocked.pdf
 source/*.doc
 source/*.docx
 source/*.ppt

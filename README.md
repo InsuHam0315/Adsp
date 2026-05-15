@@ -57,16 +57,16 @@ python -m http.server 8000
 4. Branch를 `main`, 폴더를 `/root`로 선택합니다.
 5. 배포 주소는 `https://insuham0315.github.io/Adsp/`입니다.
 
-## 추후 커스텀 도메인 연결
+## 커스텀 도메인 연결
 
-예정 도메인: `ist-adsp.kro.kr`
+설정 도메인: `ist-adsp.kro.kr`
 
 1. GitHub Pages 설정에서 Custom domain에 `ist-adsp.kro.kr` 입력
 2. 도메인 DNS에서 `ist-adsp.kro.kr`이 GitHub Pages를 가리키도록 CNAME 설정
 3. GitHub Pages에서 HTTPS 적용 확인
-4. 설정 완료 뒤에만 저장소 루트에 `CNAME` 파일을 만들고 내용으로 `ist-adsp.kro.kr`을 넣습니다.
+4. 저장소 루트의 `CNAME` 파일 내용이 `ist-adsp.kro.kr`인지 확인합니다.
 
-현재는 커스텀 도메인 설정 전이므로 `CNAME` 파일을 만들지 않았습니다.
+현재 원격 저장소에 `CNAME` 파일이 추가되어 있으며 내용은 `ist-adsp.kro.kr`입니다.
 
 ## 새 문제집 추가 방법
 

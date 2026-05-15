@@ -720,6 +720,188 @@ button:focus,
   color: #dbe8f7;
 }
 
+.hot,
+.key-term {
+  color: #ff7b72;
+  font-weight: 900;
+}
+
+.accent-term {
+  color: #ffd166;
+  font-weight: 900;
+}
+
+.blue-term {
+  color: #8ab4ff;
+  font-weight: 900;
+}
+
+.green-term {
+  color: #6be69b;
+  font-weight: 900;
+}
+
+.verify-box {
+  margin: 16px 0;
+  padding: 16px 18px;
+  border: 1px solid rgba(91, 214, 201, 0.35);
+  border-left: 5px solid var(--primary);
+  border-radius: 8px;
+  background: #0f1e25;
+}
+
+.visual-map {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 10px;
+  margin: 14px 0;
+}
+
+.visual-node {
+  padding: 13px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #0f1722;
+}
+
+.visual-node strong {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--primary-strong);
+}
+
+.formula-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  margin: 14px 0;
+}
+
+.formula-card {
+  padding: 15px;
+  border: 1px solid rgba(255, 209, 102, 0.32);
+  border-radius: 8px;
+  background: #211b0f;
+}
+
+.formula-card strong {
+  display: block;
+  margin-bottom: 8px;
+  color: #ffd166;
+}
+
+.formula {
+  display: block;
+  padding: 9px 10px;
+  border-radius: 8px;
+  background: #0b1118;
+  color: #ffffff;
+  font-family: Consolas, "Courier New", monospace;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.axis-grid {
+  display: grid;
+  grid-template-columns: 120px repeat(2, minmax(160px, 1fr));
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 14px 0;
+}
+
+.axis-grid > div {
+  padding: 12px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: #101a27;
+}
+
+.axis-grid > div:nth-child(3n) {
+  border-right: 0;
+}
+
+.axis-grid > div:nth-last-child(-n + 3) {
+  border-bottom: 0;
+}
+
+.axis-head {
+  background: #172638 !important;
+  color: var(--primary-strong);
+  font-weight: 900;
+}
+
+.matrix-table td.hot-cell,
+.hot-cell {
+  background: #2b1518;
+  color: #ffd1d1;
+  font-weight: 800;
+}
+
+.pyramid {
+  display: grid;
+  gap: 8px;
+  margin: 14px auto;
+  max-width: 680px;
+}
+
+.pyramid-step {
+  margin: 0 auto;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #0f1722;
+  text-align: center;
+  font-weight: 800;
+}
+
+.pyramid-step:nth-child(1) { width: 45%; background: #2b1518; }
+.pyramid-step:nth-child(2) { width: 60%; background: #241c0b; }
+.pyramid-step:nth-child(3) { width: 78%; background: #0f1e25; }
+.pyramid-step:nth-child(4) { width: 96%; background: #172638; }
+
+.confusion-matrix {
+  display: grid;
+  grid-template-columns: 130px repeat(2, minmax(120px, 1fr));
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 14px 0;
+}
+
+.confusion-matrix div {
+  padding: 12px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  text-align: center;
+}
+
+.confusion-matrix div:nth-child(3n) {
+  border-right: 0;
+}
+
+.confusion-matrix div:nth-last-child(-n + 3) {
+  border-bottom: 0;
+}
+
+.cm-head {
+  background: #172638;
+  color: var(--primary-strong);
+  font-weight: 900;
+}
+
+.cm-good {
+  background: #0d241d;
+  color: #bfffd2;
+  font-weight: 900;
+}
+
+.cm-bad {
+  background: #2b1518;
+  color: #ffd1d1;
+  font-weight: 900;
+}
+
 @media (max-width: 720px) {
   .lecture-hero {
     grid-template-columns: 1fr;

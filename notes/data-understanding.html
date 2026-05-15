@@ -26,6 +26,11 @@
       <h2>과목 개요</h2>
       <p>데이터 이해는 ADsP의 출발점이다. 데이터가 정보와 지식으로 바뀌는 과정, 데이터베이스와 데이터웨어하우스의 역할, 빅데이터가 만드는 가치, 데이터 윤리와 거버넌스를 구분해 묻는다.</p>
 
+      <div class="verify-box">
+        <strong class="green-term">검증 기준</strong>
+        <p>DataQ 공식 과목 체계의 <span class="key-term">데이터의 이해</span>, <span class="key-term">데이터의 가치와 미래</span>, <span class="key-term">데이터 사이언스와 전략 인사이트</span> 범위와 source PDF의 세부 항목을 대조했다. 기존 노트의 큰 방향은 맞지만, 시험식 표현에 맞춰 데이터베이스 4특성, SQL 구분, DW/ODS/ETL, 데이터레이크, 개인정보 분류를 보강한다.</p>
+      </div>
+
       <h2>시험에 나오는 핵심</h2>
       <ul>
         <li>데이터, 정보, 지식, 지혜의 단계 차이를 설명할 수 있어야 한다.</li>
@@ -41,6 +46,12 @@
       <p>데이터는 관찰·측정·수집된 사실 또는 값이다. 그 자체만으로는 의미가 약할 수 있지만, 맥락과 해석이 더해지면 정보가 되고 의사결정의 근거가 된다.</p>
 
       <h3>DIKW 피라미드</h3>
+      <div class="pyramid" aria-label="DIKW 피라미드">
+        <div class="pyramid-step">Wisdom: 지식으로 판단하고 전략을 세움</div>
+        <div class="pyramid-step">Knowledge: 패턴을 의사결정에 활용</div>
+        <div class="pyramid-step">Information: 데이터에서 의미와 패턴을 인식</div>
+        <div class="pyramid-step">Data: 가공 전 객관적 사실</div>
+      </div>
       <ul>
         <li>Data: 가공 전 사실과 수치</li>
         <li>Information: 목적에 맞게 처리되어 의미가 생긴 데이터</li>
@@ -51,8 +62,19 @@
       <h3>데이터 유형</h3>
       <p>정형 데이터는 행과 열처럼 정해진 구조가 있다. 반정형 데이터는 XML, JSON처럼 태그나 메타데이터가 있으나 고정 스키마가 약하다. 비정형 데이터는 문서, 이미지, 음성, 영상처럼 정형화된 테이블로 바로 다루기 어렵다.</p>
 
+      <table class="matrix-table">
+        <thead><tr><th>분류 기준</th><th>유형</th><th>예시</th><th>시험 단서</th></tr></thead>
+        <tbody>
+          <tr><td>형태</td><td><span class="key-term">정형</span></td><td>관계형 DB, 엑셀, CSV</td><td>행·열, 스키마</td></tr>
+          <tr><td>형태</td><td><span class="key-term">반정형</span></td><td>HTML, XML, JSON, RDF</td><td>메타데이터, 태그 구조</td></tr>
+          <tr><td>형태</td><td><span class="key-term">비정형</span></td><td>SNS, 영상, 음원, 문서</td><td>자유 형태</td></tr>
+          <tr><td>표현</td><td>정량</td><td>온도, 매출, 풍속</td><td>수치로 측정</td></tr>
+          <tr><td>표현</td><td>정성</td><td>주관식 응답, 기상특보</td><td>언어와 설명</td></tr>
+        </tbody>
+      </table>
+
       <h3>데이터베이스, 데이터웨어하우스, 데이터마트</h3>
-      <p>데이터베이스는 특정 업무의 데이터를 체계적으로 저장·관리하는 시스템이다. 데이터웨어하우스는 의사결정을 위해 여러 시스템의 데이터를 통합해 주제 중심, 통합성, 시계열성, 비휘발성 특성을 갖는다. 데이터마트는 부서나 특정 분석 목적에 맞춰 데이터웨어하우스의 일부를 작게 구성한 것이다.</p>
+      <p>데이터베이스는 특정 업무의 데이터를 체계적으로 저장·관리하는 시스템이다. ADsP 요약노트 기준 데이터베이스 4특성은 <span class="key-term">공용 데이터</span>, <span class="key-term">통합된 데이터</span>, <span class="key-term">저장된 데이터</span>, <span class="key-term">변화되는 데이터</span>로 정리한다. 데이터웨어하우스는 의사결정을 위해 여러 시스템의 데이터를 통합해 주제 중심, 통합성, 시계열성, 비휘발성 특성을 갖는다. 데이터마트는 부서나 특정 분석 목적에 맞춰 데이터웨어하우스의 일부를 작게 구성한 것이다.</p>
 
       <h3>빅데이터 개념과 3V·5V</h3>
       <p>빅데이터는 기존 방식으로 저장·처리·분석하기 어려운 대규모·다양한 데이터와 그 활용 체계를 말한다. 3V는 Volume, Velocity, Variety이며 5V는 여기에 Veracity와 Value를 더해 데이터 신뢰성과 가치 창출을 강조한다.</p>
@@ -71,12 +93,36 @@
       <ul>
         <li>통합된 데이터: 중복을 최소화하고 여러 업무에서 함께 활용할 수 있게 관리한다.</li>
         <li>저장된 데이터: 컴퓨터가 접근 가능한 저장매체에 체계적으로 저장된다.</li>
-        <li>운영 데이터: 조직의 업무 수행에 실제로 필요한 데이터다.</li>
         <li>공용 데이터: 여러 사용자가 권한에 따라 공동으로 활용한다.</li>
+        <li>변화되는 데이터: 추가·수정·삭제 이후에도 현재의 정확한 값을 유지한다.</li>
       </ul>
+
+      <div class="visual-map">
+        <div class="visual-node"><strong>공용</strong>여러 사용자가 공동 이용</div>
+        <div class="visual-node"><strong>통합</strong>중복 최소화와 일관성</div>
+        <div class="visual-node"><strong>저장</strong>컴퓨터 저장매체에 관리</div>
+        <div class="visual-node"><strong>변화</strong>현행성과 무결성 유지</div>
+      </div>
 
       <h3>DBMS와 데이터 독립성</h3>
       <p>DBMS는 데이터 정의, 조작, 제어 기능을 제공한다. 데이터 독립성은 응용 프로그램과 데이터 구조 사이의 의존도를 낮추는 개념이며, 논리적 독립성과 물리적 독립성으로 나누어 볼 수 있다.</p>
+
+      <div class="flow">
+        <span class="flow-step">요구조건 분석</span>
+        <span class="flow-step">개념적 설계<br><small>ERD, 개념 스키마</small></span>
+        <span class="flow-step">논리적 설계<br><small>테이블 구조</small></span>
+        <span class="flow-step">물리적 설계<br><small>저장 구조</small></span>
+      </div>
+
+      <table>
+        <thead><tr><th>SQL 구분</th><th>명령어</th><th>역할</th></tr></thead>
+        <tbody>
+          <tr><td><span class="key-term">DDL</span></td><td>CREATE, ALTER, DROP</td><td>구조 정의</td></tr>
+          <tr><td><span class="key-term">DML</span></td><td>SELECT, INSERT, UPDATE, DELETE</td><td>데이터 조회·조작</td></tr>
+          <tr><td><span class="key-term">DCL</span></td><td>GRANT, REVOKE</td><td>권한 제어</td></tr>
+          <tr><td><span class="key-term">TCL</span></td><td>COMMIT, ROLLBACK</td><td>트랜잭션 제어</td></tr>
+        </tbody>
+      </table>
 
       <h3>데이터 처리 관점</h3>
       <table>
@@ -89,11 +135,41 @@
         </tbody>
       </table>
 
+      <h3>데이터웨어하우스 구성 그림</h3>
+      <div class="flow">
+        <span class="flow-step">원천 시스템<br><small>CRM, ERP, SCM</small></span>
+        <span class="flow-step"><span class="key-term">ETL</span><br><small>추출·변환·적재</small></span>
+        <span class="flow-step"><span class="key-term">ODS</span><br><small>임시 통합 저장</small></span>
+        <span class="flow-step"><span class="key-term">DW</span><br><small>전사 분석 저장소</small></span>
+        <span class="flow-step"><span class="key-term">Data Mart</span><br><small>부서별 분석</small></span>
+      </div>
+
+      <table>
+        <thead><tr><th>업무 시스템</th><th>의미</th><th>시험 단서</th></tr></thead>
+        <tbody>
+          <tr><td>CRM</td><td>고객 관계 자료 분석과 마케팅 활용</td><td>고객, 마케팅</td></tr>
+          <tr><td>SCM</td><td>공급망 연결과 최적화</td><td>공급, 물류</td></tr>
+          <tr><td>ERP</td><td>기업 경영 자원 통합 관리</td><td>인사, 회계, 생산 통합</td></tr>
+          <tr><td>BI</td><td>데이터 정리와 리포트 중심 의사결정 지원</td><td>리포트, 현황</td></tr>
+          <tr><td>BA</td><td>통계 기반 비즈니스 통찰 도출</td><td>예측, 분석, 통찰</td></tr>
+          <tr><td>KMS</td><td>조직 지식 관리</td><td>지식 축적과 공유</td></tr>
+        </tbody>
+      </table>
+
       <h3>데이터 가치 평가 관점</h3>
       <p>데이터의 가치는 단순 보유량이 아니라 활용 가능성, 품질, 희소성, 결합 가능성, 업무 영향도에서 나온다. 같은 데이터라도 문제 정의와 활용 맥락이 없으면 가치가 작고, 의사결정 개선이나 비용 절감으로 이어지면 가치가 커진다.</p>
 
       <h3>개인정보와 비식별 처리</h3>
       <p>개인정보 보호에서는 목적 제한, 최소 수집, 보유 기간 관리, 접근 통제, 파기 절차가 중요하다. 비식별 처리는 가명처리, 총계처리, 데이터 삭제, 범주화, 마스킹 등으로 식별 위험을 낮추는 활동이며, 다른 데이터와 결합했을 때의 재식별 가능성까지 검토해야 한다.</p>
+
+      <table>
+        <thead><tr><th>구분</th><th>설명</th><th>활용 포인트</th></tr></thead>
+        <tbody>
+          <tr><td><span class="key-term">개인정보</span></td><td>개인을 알아볼 수 있는 정보</td><td>동의와 보호 조치 필요</td></tr>
+          <tr><td><span class="accent-term">가명정보</span></td><td>추가정보 없이는 특정 개인 식별 곤란</td><td>통계 작성, 연구, 공익 기록보존 등 목적</td></tr>
+          <tr><td><span class="green-term">익명정보</span></td><td>더 이상 개인 식별 불가능</td><td>개인정보 규율 대상에서 벗어남</td></tr>
+        </tbody>
+      </table>
 
       <h3>데이터 품질 관리 절차</h3>
       <ol>

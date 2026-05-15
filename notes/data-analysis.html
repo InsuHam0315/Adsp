@@ -26,6 +26,11 @@
       <h2>과목 개요</h2>
       <p>데이터 분석 과목은 ADsP에서 가장 기술적인 영역이다. 통계 기본 개념, 가설검정, 회귀·분류·군집·연관·시계열 분석, 전처리와 모델 평가를 폭넓게 묻는다.</p>
 
+      <div class="verify-box">
+        <strong class="green-term">검증 기준</strong>
+        <p>DataQ 공식 범위의 <span class="key-term">R기초와 데이터 마트</span>, <span class="key-term">통계분석</span>, <span class="key-term">정형 데이터 마이닝</span>을 기준으로 source PDF의 결측·이상값, 척도, 확률분포, 추정·검정, 회귀, PCA, 시계열, 분류·군집·연관분석을 대조했다. 기존 노트에는 R기초와 공식·지표 시각화가 부족해 보강한다.</p>
+      </div>
+
       <h2>시험에 나오는 핵심</h2>
       <ul>
         <li>모집단, 표본, 추정, 검정의 관계를 이해한다.</li>
@@ -37,11 +42,41 @@
       </ul>
 
       <h2>핵심 개념 정리</h2>
+      <h3>R기초와 데이터 마트</h3>
+      <p>ADsP의 3과목은 실제 분석 도구 문맥을 함께 묻는다. R 문법 자체를 깊게 코딩하는 시험은 아니지만, <span class="key-term">벡터</span>, <span class="key-term">데이터프레임</span>, <span class="key-term">factor</span>, <span class="key-term">NA</span> 같은 기본 용어와 데이터 마트·요약변수·파생변수 개념은 구분해야 한다.</p>
+
+      <table>
+        <thead><tr><th>구분</th><th>핵심 설명</th><th>시험 단서</th></tr></thead>
+        <tbody>
+          <tr><td>Vector</td><td>동일한 자료형 원소의 1차원 묶음</td><td>c(1, 2, 3)</td></tr>
+          <tr><td>Data Frame</td><td>행과 열을 가진 표 형태 자료</td><td>분석 데이터셋</td></tr>
+          <tr><td>Factor</td><td>범주형 변수를 수준(level)으로 표현</td><td>성별, 등급, 그룹</td></tr>
+          <tr><td>NA</td><td>결측값</td><td>값이 존재하지 않음</td></tr>
+          <tr><td>요약변수</td><td>수집 정보를 종합한 변수</td><td>최근 1개월 구매금액</td></tr>
+          <tr><td>파생변수</td><td>의미를 부여해 새로 만든 변수</td><td>고객구매등급</td></tr>
+        </tbody>
+      </table>
+
       <h3>통계 기초와 모집단·표본</h3>
       <p>모집단은 관심 대상 전체이고 표본은 모집단에서 추출한 일부다. 통계 분석은 표본을 통해 모집단의 특성을 추정하거나 가설을 검정한다.</p>
 
       <h3>대표값과 산포도</h3>
       <p>평균은 모든 값을 합해 개수로 나눈 값, 중앙값은 크기 순서의 가운데 값, 최빈값은 가장 자주 등장한 값이다. 분산은 평균으로부터 떨어진 정도의 제곱 평균이고, 표준편차는 분산의 제곱근이라 원래 단위로 해석하기 쉽다.</p>
+
+      <div class="formula-grid">
+        <div class="formula-card">
+          <strong>표본분산</strong>
+          <span class="formula">s² = Σ(xᵢ - x̄)² / (n - 1)</span>
+        </div>
+        <div class="formula-card">
+          <strong>표준편차</strong>
+          <span class="formula">s = √s²</span>
+        </div>
+        <div class="formula-card">
+          <strong>변동계수</strong>
+          <span class="formula">CV = 표준편차 / 평균 × 100</span>
+        </div>
+      </div>
 
       <h3>확률분포와 정규분포</h3>
       <p>확률분포는 확률변수가 가질 수 있는 값과 그 확률을 나타낸다. 정규분포는 평균을 중심으로 좌우 대칭인 종 모양 분포이며 많은 통계 검정의 기본 가정으로 쓰인다.</p>
@@ -52,26 +87,135 @@
       <h3>가설검정과 p-value</h3>
       <p>p-value는 귀무가설이 참이라고 가정할 때 현재와 같거나 더 극단적인 결과가 나올 확률이다. p-value가 유의수준보다 작으면 귀무가설을 기각한다.</p>
 
+      <div class="flow">
+        <span class="flow-step">가설 설정<br><small>H0, H1</small></span>
+        <span class="flow-step">검정 방향<br><small>양측/단측</small></span>
+        <span class="flow-step">검정통계량</span>
+        <span class="flow-step">p-value 계산</span>
+        <span class="flow-step"><span class="key-term">p &lt; α</span><br><small>귀무가설 기각</small></span>
+      </div>
+
+      <table>
+        <thead><tr><th>상황</th><th>대표 검정</th><th>핵심 단서</th></tr></thead>
+        <tbody>
+          <tr><td>한 집단 평균</td><td>일표본 t검정</td><td>모집단 평균과 비교</td></tr>
+          <tr><td>두 독립 집단 평균</td><td>독립표본 t검정</td><td>서로 다른 두 집단</td></tr>
+          <tr><td>같은 대상 전후 평균</td><td>대응표본 t검정</td><td>전후, 짝지어진 자료</td></tr>
+          <tr><td>세 집단 이상 평균</td><td>ANOVA</td><td>분산분석, F통계량</td></tr>
+          <tr><td>범주형 변수 관련성</td><td>카이제곱 검정</td><td>독립성, 동질성, 적합도</td></tr>
+        </tbody>
+      </table>
+
       <h3>상관분석과 회귀분석</h3>
       <p>상관분석은 두 변수의 선형 관계 강도와 방향을 본다. 회귀분석은 독립변수로 종속변수를 설명하거나 예측하는 모형을 만든다. 다중회귀는 독립변수가 둘 이상인 회귀다.</p>
+
+      <div class="formula-grid">
+        <div class="formula-card">
+          <strong>단순선형회귀</strong>
+          <span class="formula">ŷ = β₀ + β₁x</span>
+        </div>
+        <div class="formula-card">
+          <strong>결정계수</strong>
+          <span class="formula">R² = SSR / SST = 1 - SSE / SST</span>
+        </div>
+        <div class="formula-card">
+          <strong>다중공선성</strong>
+          <span class="formula">VIF = 1 / (1 - R²)</span>
+        </div>
+      </div>
 
       <h3>로지스틱 회귀, 분류와 회귀</h3>
       <p>로지스틱 회귀는 종속변수가 범주형일 때 사건 발생 확률을 모델링하는 분류 기법이다. 분류는 범주를 예측하고, 회귀는 연속형 값을 예측한다.</p>
 
+      <div class="formula-grid">
+        <div class="formula-card">
+          <strong>오즈</strong>
+          <span class="formula">Odds = p / (1 - p)</span>
+        </div>
+        <div class="formula-card">
+          <strong>로짓</strong>
+          <span class="formula">logit(p) = ln(p / (1 - p))</span>
+        </div>
+        <div class="formula-card">
+          <strong>시그모이드</strong>
+          <span class="formula">p = 1 / (1 + e⁻ᶻ)</span>
+        </div>
+      </div>
+
       <h3>의사결정나무</h3>
       <p>의사결정나무는 데이터를 조건에 따라 반복 분할해 예측 규칙을 만든다. 해석이 쉽지만 가지가 지나치게 깊으면 과적합 위험이 있다.</p>
+
+      <table>
+        <thead><tr><th>알고리즘</th><th>분류 기준</th><th>시험 포인트</th></tr></thead>
+        <tbody>
+          <tr><td>CHAID</td><td>카이제곱 통계량</td><td>범주형 분할</td></tr>
+          <tr><td>CART</td><td>지니지수, 분산감소량</td><td>분류와 회귀 모두 가능</td></tr>
+          <tr><td>C4.5/C5.0</td><td>엔트로피, 정보이득</td><td>엔트로피 단서</td></tr>
+        </tbody>
+      </table>
 
       <h3>군집분석과 K-means</h3>
       <p>군집분석은 정답 레이블 없이 유사한 관측치를 묶는 비지도학습이다. K-means는 군집 수 K를 정하고 중심점과 거리 기준으로 군집을 반복 갱신한다.</p>
 
+      <div class="flow">
+        <span class="flow-step">K 설정</span>
+        <span class="flow-step">초기 중심점 선택</span>
+        <span class="flow-step">가까운 군집 할당</span>
+        <span class="flow-step">중심점 재계산</span>
+        <span class="flow-step">수렴까지 반복</span>
+      </div>
+
       <h3>연관분석</h3>
       <p>연관분석은 함께 발생하는 항목의 규칙을 찾는다. 지지도, 신뢰도, 향상도가 핵심 지표이며 장바구니 분석 예시가 자주 나온다.</p>
+
+      <div class="formula-grid">
+        <div class="formula-card">
+          <strong>지지도</strong>
+          <span class="formula">support(A→B) = P(A ∩ B)</span>
+        </div>
+        <div class="formula-card">
+          <strong>신뢰도</strong>
+          <span class="formula">confidence(A→B) = P(A ∩ B) / P(A)</span>
+        </div>
+        <div class="formula-card">
+          <strong>향상도</strong>
+          <span class="formula">lift(A→B) = P(A ∩ B) / (P(A)P(B))</span>
+        </div>
+      </div>
 
       <h3>시계열 분석</h3>
       <p>시계열 분석은 시간 순서가 있는 데이터를 다룬다. 추세, 계절성, 순환, 불규칙 요인을 분해해 예측이나 이상 탐지에 활용한다.</p>
 
+      <div class="visual-map">
+        <div class="visual-node"><strong>추세</strong>장기 증가·감소 방향</div>
+        <div class="visual-node"><strong>계절</strong>고정 주기 반복</div>
+        <div class="visual-node"><strong>순환</strong>불규칙한 장기 주기</div>
+        <div class="visual-node"><strong>불규칙</strong>설명 어려운 변동</div>
+      </div>
+
+      <div class="formula-card">
+        <strong>ARIMA 표기</strong>
+        <span class="formula">ARIMA(p, d, q): p=AR 차수, d=차분 횟수, q=MA 차수</span>
+      </div>
+
       <h3>데이터 전처리, 결측치, 이상치</h3>
       <p>전처리는 분석 전 데이터 품질을 높이는 작업이다. 결측치는 삭제, 대체, 예측 보완으로 처리할 수 있고, 이상치는 오류인지 의미 있는 극단값인지 판단한 뒤 처리한다.</p>
+
+      <div class="formula-grid">
+        <div class="formula-card">
+          <strong>IQR 이상값 기준</strong>
+          <span class="formula">하한 = Q1 - 1.5 × IQR</span>
+          <span class="formula">상한 = Q3 + 1.5 × IQR</span>
+        </div>
+        <div class="formula-card">
+          <strong>Z-score</strong>
+          <span class="formula">z = (x - μ) / σ</span>
+        </div>
+        <div class="formula-card">
+          <strong>ESD 관점</strong>
+          <span class="formula">평균 ± 3 × 표준편차 밖이면 의심</span>
+        </div>
+      </div>
 
       <h3>차원축소와 주성분분석 PCA</h3>
       <p>차원축소는 변수 수를 줄여 분석 효율과 해석 가능성을 높이는 방법이다. PCA는 상관된 변수들을 분산을 많이 설명하는 새로운 축인 주성분으로 변환한다.</p>
@@ -106,6 +250,17 @@
       </ul>
 
       <h3>혼동행렬과 분류 지표</h3>
+      <div class="confusion-matrix" aria-label="혼동행렬">
+        <div class="cm-head">예측 / 실제</div>
+        <div class="cm-head">실제 Positive</div>
+        <div class="cm-head">실제 Negative</div>
+        <div class="cm-head">예측 Positive</div>
+        <div class="cm-good">TP<br><small>맞힌 양성</small></div>
+        <div class="cm-bad">FP<br><small>오탐</small></div>
+        <div class="cm-head">예측 Negative</div>
+        <div class="cm-bad">FN<br><small>미탐</small></div>
+        <div class="cm-good">TN<br><small>맞힌 음성</small></div>
+      </div>
       <table>
         <thead><tr><th>지표</th><th>의미</th><th>시험 포인트</th></tr></thead>
         <tbody>
@@ -119,6 +274,32 @@
 
       <h3>군집분석 추가 포인트</h3>
       <p>K-means는 거리 기반이므로 변수 스케일에 민감하다. 계층적 군집분석은 관측치를 단계적으로 묶거나 나누며 덴드로그램으로 결과를 볼 수 있다. 군집분석은 정답 레이블이 없기 때문에 해석과 업무 활용 가능성 검토가 중요하다.</p>
+
+      <table>
+        <thead><tr><th>거리·유사도</th><th>설명</th><th>자주 나오는 단서</th></tr></thead>
+        <tbody>
+          <tr><td>유클리디안</td><td>두 점 사이 직선거리</td><td>가장 기본적인 거리</td></tr>
+          <tr><td>맨하튼</td><td>각 변수 차이 절댓값의 합</td><td>격자형 거리</td></tr>
+          <tr><td>마할라노비스</td><td>상관관계를 고려한 표준화 거리</td><td>변수 간 상관 고려</td></tr>
+          <tr><td>자카드</td><td>교집합 / 합집합</td><td>범주·집합 유사도</td></tr>
+          <tr><td>코사인</td><td>벡터 방향의 유사도</td><td>문서·텍스트 유사도</td></tr>
+        </tbody>
+      </table>
+
+      <div class="formula-grid">
+        <div class="formula-card">
+          <strong>실루엣 계수</strong>
+          <span class="formula">s(i) = (b(i) - a(i)) / max(a(i), b(i))</span>
+        </div>
+        <div class="formula-card">
+          <strong>WCSS</strong>
+          <span class="formula">Σ Σ distance(x, centroid)²</span>
+        </div>
+        <div class="formula-card">
+          <strong>Elbow Method</strong>
+          <span class="formula">WCSS 감소폭이 완만해지는 K 선택</span>
+        </div>
+      </div>
 
       <h3>연관분석 지표</h3>
       <ul>

@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ADsP 오답노트</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <h1>오답노트</h1>
+      <p>localStorage에 저장된 틀린 문제를 다시 확인합니다.</p>
+      <div class="top-actions">
+        <a class="button secondary" href="../index.html">메인으로 돌아가기</a>
+        <a class="button primary" href="../cbt/adsp_basic_cbt.html">기본 CBT로 이동</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="section">
+      <div class="toolbar">
+        <label>과목 필터
+          <select id="subjectFilter"></select>
+        </label>
+        <button type="button" id="refreshButton">오답 데이터 새로고침</button>
+        <button type="button" id="clearWrongButton" class="danger">전체 오답 초기화</button>
+      </div>
+      <div class="metric">
+        <strong id="wrongCount">0</strong>
+        <span>전체 오답 개수</span>
+      </div>
+    </section>
+    <section class="section" id="wrongList"></section>
+  </main>
+
+  <script src="../assets/storage.js"></script>
+  <script>
+    (function () {
+      "use strict";
+
+      var subjectFilter = document.getElementById("subjectFilter");
+      var wrongList = document.getElementById("wrongList");
+      var wrongCount = document.getElementById("wrongCount");
+
+      function formatDate(value) {
+        if (!value) return "-";
+        return new Date(value).toLocaleString("ko-KR");
+      }
+
+      function getWrongItems() {
+        var data = window.ADSPStorage.getStudyData();
+        return Object.values(data.wrongQuestions || {}).sort(function (a, b) {
+          return String(b.answeredAt || "").localeCompare(String(a.answeredAt || ""));
+        });
+      }
+
+      function renderSubjects(items) {
+        var current = subjectFilter.value || "전체";
+        var subjects = ["전체"].concat(Array.from(new Set(items.map(function (item) { return item.subject; }).filter(Boolean))).sort(function (a, b) {
+          return a.localeCompare(b, "ko");
+        }));
+        subjectFilter.innerHTML = subjects.map(function (subject) {
+          return '<option value="' + subject + '">' + subject + "</option>";
+        }).join("");
+        subjectFilter.value = subjects.includes(current) ? current : "전체";
+      }
+
+      function render() {
+        var items = getWrongItems();
+        renderSubjects(items);
+        var selectedSubject = subjectFilter.value || "전체";
+        var filtered = selectedSubject === "전체" ? items : items.filter(function (item) { return item.subject === selectedSubject; });
+        wrongCount.textContent = String(items.length);
+
+        if (!filtered.length) {
+          wrongList.innerHTML = '<div class="empty">저장된 오답이 없습니다.</div>';
+          return;
+        }
+
+        wrongList.innerHTML = filtered.map(function (item) {
+          return [
+            '<article class="question-card">',
+            '<div class="question-meta"><span class="tag">' + escapeHtml(item.questionId) + '</span><span class="tag">' + escapeHtml(item.subject) + '</span><span class="tag">' + escapeHtml(item.category) + '</span></div>',
+            '<p class="question-text">' + escapeHtml(item.questionText) + '</p>',
+            '<p>내가 고른 답: ' + escapeHtml(item.selectedAnswer) + '. ' + escapeHtml(item.selectedAnswerText || '') + '</p>',
+            '<p>정답: ' + escapeHtml(item.correctAnswer) + '. ' + escapeHtml(item.correctAnswerText || '') + '</p>',
+            '<p>해설: ' + escapeHtml(item.explanation) + '</p>',
+            '<p>틀린 날짜: ' + formatDate(item.answeredAt) + '</p>',
+            '<p class="footer-note">출처: ' + escapeHtml(item.source || '학습용 예상문제') + '</p>',
+            '</article>'
+          ].join("");
+        }).join("");
+      }
+
+      function escapeHtml(value) {
+        return String(value == null ? "" : value)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#039;");
+      }
+
+      subjectFilter.addEventListener("change", render);
+      document.getElementById("refreshButton").addEventListener("click", render);
+      document.getElementById("clearWrongButton").addEventListener("click", function () {
+        if (!confirm("오답노트를 모두 비울까요? 학습 통계는 유지됩니다.")) {
+          return;
+        }
+        var data = window.ADSPStorage.getStudyData();
+        data.wrongQuestions = {};
+        window.ADSPStorage.saveStudyData(data);
+        render();
+      });
+      render();
+    })();
+  </script>
+</body>
+</html>

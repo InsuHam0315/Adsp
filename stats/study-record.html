@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ADsP 학습기록</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <h1>학습기록</h1>
+      <p>브라우저 localStorage에 저장된 풀이 기록을 확인합니다.</p>
+      <div class="top-actions">
+        <a class="button secondary" href="../index.html">메인으로 돌아가기</a>
+        <a class="button primary" href="../cbt/adsp_basic_cbt.html">기본 CBT로 이동</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="section">
+      <div class="toolbar">
+        <button type="button" id="refreshButton">기록 새로고침</button>
+        <button type="button" id="exportButton">학습 기록 JSON 내보내기</button>
+        <button type="button" id="resetButton" class="danger">학습 기록 초기화</button>
+      </div>
+      <div class="stats-grid">
+        <div class="metric"><strong id="totalAnswered">0</strong><span>총 풀이 수</span></div>
+        <div class="metric"><strong id="correctCount">0</strong><span>정답 수</span></div>
+        <div class="metric"><strong id="wrongCount">0</strong><span>오답 수</span></div>
+        <div class="metric"><strong id="accuracy">0%</strong><span>전체 정답률</span></div>
+        <div class="metric"><strong id="lastStudiedAt">-</strong><span>마지막 학습 시간</span></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>과목별 풀이 수와 정답률</h2>
+      <div id="subjectStats"></div>
+    </section>
+
+    <section class="section">
+      <h2>최근 풀이 로그 20개</h2>
+      <div id="recentLogs"></div>
+    </section>
+  </main>
+
+  <script src="../assets/storage.js"></script>
+  <script>
+    (function () {
+      "use strict";
+
+      function rate(correct, total) {
+        return total ? Math.round((correct / total) * 100) + "%" : "0%";
+      }
+
+      function formatDate(value) {
+        if (!value) return "-";
+        return new Date(value).toLocaleString("ko-KR");
+      }
+
+      function render() {
+        var data = window.ADSPStorage.getStudyData();
+        document.getElementById("totalAnswered").textContent = data.totalAnswered;
+        document.getElementById("correctCount").textContent = data.correctCount;
+        document.getElementById("wrongCount").textContent = data.wrongCount;
+        document.getElementById("accuracy").textContent = rate(data.correctCount, data.totalAnswered);
+        document.getElementById("lastStudiedAt").textContent = formatDate(data.lastStudiedAt);
+
+        var subjectRows = Object.keys(data.bySubject || {}).sort(function (a, b) { return a.localeCompare(b, "ko"); }).map(function (subject) {
+          var item = data.bySubject[subject];
+          return "<tr><td>" + escapeHtml(subject) + "</td><td>" + item.answered + "</td><td>" + item.correct + "</td><td>" + item.wrong + "</td><td>" + rate(item.correct, item.answered) + "</td></tr>";
+        }).join("");
+        document.getElementById("subjectStats").innerHTML = subjectRows ? '<table><thead><tr><th>과목</th><th>풀이 수</th><th>정답</th><th>오답</th><th>정답률</th></tr></thead><tbody>' + subjectRows + '</tbody></table>' : '<div class="empty">과목별 기록이 없습니다.</div>';
+
+        var logs = (data.sessions || []).slice(0, 20);
+        document.getElementById("recentLogs").innerHTML = logs.length ? '<table><thead><tr><th>시간</th><th>결과</th><th>과목</th><th>카테고리</th><th>문제</th></tr></thead><tbody>' + logs.map(function (item) {
+          return "<tr><td>" + formatDate(item.answeredAt) + "</td><td>" + (item.isCorrect ? "정답" : "오답") + "</td><td>" + escapeHtml(item.subject) + "</td><td>" + escapeHtml(item.category) + "</td><td>" + escapeHtml(item.questionText) + "</td></tr>";
+        }).join("") + "</tbody></table>" : '<div class="empty">최근 풀이 로그가 없습니다.</div>';
+      }
+
+      function escapeHtml(value) {
+        return String(value == null ? "" : value)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#039;");
+      }
+
+      document.getElementById("refreshButton").addEventListener("click", render);
+      document.getElementById("exportButton").addEventListener("click", function () {
+        var blob = new Blob([window.ADSPStorage.exportStudyData()], { type: "application/json" });
+        var url = URL.createObjectURL(blob);
+        var link = document.createElement("a");
+        link.href = url;
+        link.download = "adsp-study-data.json";
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        URL.revokeObjectURL(url);
+      });
+      document.getElementById("resetButton").addEventListener("click", function () {
+        if (!confirm("학습 기록과 오답노트를 모두 초기화할까요?")) {
+          return;
+        }
+        window.ADSPStorage.resetStudyData();
+        render();
+      });
+      render();
+    })();
+  </script>
+</body>
+</html>

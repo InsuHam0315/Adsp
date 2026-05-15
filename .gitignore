@@ -1,0 +1,26 @@
+# Local server and OS noise
+.DS_Store
+Thumbs.db
+.server.out
+.server.err
+.browser.out
+.browser.err
+.chrome-test-profile/
+runtime-check.html
+
+# Keep raw third-party source materials local unless publication is reviewed.
+# Commit summarized notes/questions instead of unreviewed originals.
+source/*.pdf
+source/*.doc
+source/*.docx
+source/*.ppt
+source/*.pptx
+source/*.hwp
+source/*.hwpx
+source/*.zip
+source/*.7z
+source/*.png
+source/*.jpg
+source/*.jpeg
+source/*.gif
+source/*.webp

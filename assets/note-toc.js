@@ -7,7 +7,9 @@
   }
 
   function createToc(article) {
-    if (article.querySelector(".note-toc")) return;
+    var container = article.closest(".container");
+    if (container && container.querySelector(".note-toc")) return;
+    if (!container && article.querySelector(".note-toc")) return;
 
     var headings = Array.prototype.filter.call(article.children, function (element) {
       return element.tagName === "H2" || element.tagName === "H3";
@@ -66,7 +68,40 @@
 
     nav.appendChild(title);
     nav.appendChild(list);
-    article.insertBefore(nav, article.firstElementChild);
+
+    if (container) {
+      container.classList.add("note-layout");
+      nav.classList.add("note-toc-sidebar");
+      container.insertBefore(nav, article);
+    } else {
+      article.insertBefore(nav, article.firstElementChild);
+    }
+
+    trackActiveSection(nav, headings);
+  }
+
+  function trackActiveSection(nav, headings) {
+    var links = Array.prototype.slice.call(nav.querySelectorAll("a"));
+
+    function activate(id) {
+      links.forEach(function (link) {
+        link.classList.toggle("active", link.getAttribute("href") === "#" + id);
+      });
+    }
+
+    function update() {
+      var current = headings[0];
+      headings.forEach(function (heading) {
+        if (heading.getBoundingClientRect().top <= 130) {
+          current = heading;
+        }
+      });
+      if (current) activate(current.id);
+    }
+
+    update();
+    document.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
   }
 
   document.addEventListener("DOMContentLoaded", function () {

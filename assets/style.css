@@ -609,6 +609,100 @@ tr:last-child td {
   max-width: 980px;
 }
 
+.subject-note .container.note-layout {
+  width: min(1320px, calc(100% - 32px));
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: 20px;
+  align-items: start;
+}
+
+.subject-note .container.note-layout article {
+  grid-column: 1;
+  grid-row: 1;
+  min-width: 0;
+}
+
+.subject-note .container.note-layout .note-toc {
+  grid-column: 2;
+  grid-row: 1;
+  position: sticky;
+  top: 18px;
+  max-height: calc(100vh - 36px);
+  margin: 0;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+.subject-note .container.note-layout .note-toc-title {
+  display: block;
+}
+
+.subject-note .container.note-layout .note-toc-title span {
+  display: block;
+  margin-bottom: 2px;
+}
+
+.subject-note .container.note-layout .note-toc-title strong {
+  display: block;
+  font-size: 0.98rem;
+}
+
+.subject-note .container.note-layout .note-toc-list {
+  display: block;
+}
+
+.subject-note .container.note-layout .note-toc a {
+  grid-template-columns: 38px minmax(0, 1fr);
+  min-height: 34px;
+  padding: 7px 8px;
+  border: 0;
+  border-left: 3px solid transparent;
+  border-radius: 6px;
+  background: transparent;
+  color: #c8d3e1;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.subject-note .container.note-layout .toc-level-3 a {
+  grid-template-columns: 46px minmax(0, 1fr);
+  padding-left: 18px;
+  color: #9fb0c5;
+  font-size: 0.84rem;
+}
+
+.subject-note .container.note-layout .note-toc a:hover,
+.subject-note .container.note-layout .note-toc a:focus,
+.subject-note .container.note-layout .note-toc a.active {
+  border-left-color: var(--danger);
+  background: rgba(255, 123, 114, 0.12);
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.subject-note .container.note-layout .note-toc a.active .toc-number {
+  color: var(--danger);
+}
+
+@media (max-width: 1050px) {
+  .subject-note .container.note-layout {
+    width: min(100% - 24px, 1120px);
+    display: block;
+  }
+
+  .subject-note .container.note-layout .note-toc {
+    position: static;
+    max-height: none;
+    margin: 0 0 18px;
+  }
+
+  .subject-note .container.note-layout .note-toc-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+}
+
 .footer-note {
   margin-top: 36px;
   color: var(--muted);

@@ -76,10 +76,13 @@
       var button = document.createElement("button");
       button.type = "button";
       button.textContent = String(index + 1);
+      var answeredCorrectly = state.checked[question.id] && state.answers[question.id] === question.answer;
+      var answeredWrongly = state.checked[question.id] && state.answers[question.id] !== question.answer;
       button.className = [
         index === state.current ? "current" : "",
         state.answers[question.id] ? "answered" : "",
-        state.checked[question.id] ? "checked" : ""
+        answeredCorrectly ? "correct" : "",
+        answeredWrongly ? "wrong" : ""
       ].join(" ").trim();
       button.addEventListener("click", function () {
         state.current = index;

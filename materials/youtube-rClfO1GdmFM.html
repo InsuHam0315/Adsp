@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>유튜브 강의 요약 - ADsP 1·2과목</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="note-page lecture-page">
+  <header class="site-header">
+    <div class="header-inner">
+      <h1>유튜브 강의 요약 - ADsP 1·2과목</h1>
+      <p>영상 URL의 한국어 자동자막을 바탕으로 시험 대비 강의노트 형태로 재구성했습니다.</p>
+      <div class="top-actions">
+        <a class="button secondary" href="../index.html">메인으로 돌아가기</a>
+        <a class="button secondary" href="./index.html">source 자료실</a>
+        <a class="button primary" href="../cbt/adsp_basic_cbt.html">CBT 풀기</a>
+        <a class="button secondary" href="../source/youtube_rClfO1GdmFM_transcript.md">추출 자막 보기</a>
+      </div>
+      <div class="auth-status" data-auth-status data-login="../account/login.html" data-profile="../account/profile.html"></div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="lecture-hero">
+      <div>
+        <span class="lecture-kicker">YouTube transcript</span>
+        <h2>말로 설명한 내용을 시험 직전 노트로 다시 정리</h2>
+        <p>자동자막은 오탈자가 있을 수 있어 원문 복제 대신 개념 흐름과 출제 포인트 중심으로 요약했습니다. 1과목은 데이터 이해, 2과목은 분석 기획과 방법론 암기 포인트에 집중합니다.</p>
+      </div>
+      <div class="lecture-score">
+        <strong>1·2과목</strong>
+        <span>데이터 이해 + 데이터 분석 기획</span>
+      </div>
+    </section>
+
+    <nav class="lecture-nav" aria-label="유튜브 요약 목차">
+      <a href="#subject1">1과목 핵심</a>
+      <a href="#subject2">2과목 핵심</a>
+      <a href="#memory">암기표</a>
+      <a href="#questions">예상문제</a>
+    </nav>
+
+    <article>
+      <section id="source" class="section source-box">
+        <h2>출처</h2>
+        <p>영상: <a href="https://www.youtube.com/watch?v=rClfO1GdmFM">https://www.youtube.com/watch?v=rClfO1GdmFM</a></p>
+        <p>추출 자료: <code>source/youtube_rClfO1GdmFM_transcript.md</code></p>
+      </section>
+
+      <section id="subject1" class="section">
+        <h2>1과목 데이터 이해</h2>
+        <div class="concept-block">
+          <span class="lecture-kicker">가장 먼저 구분</span>
+          <h3>데이터와 정보</h3>
+          <p><span class="key-term">데이터</span>는 있는 그대로의 객관적 사실이고, <span class="key-term">정보</span>는 데이터를 목적에 맞게 가공해 의미를 부여한 자료입니다. 시험에서는 “가공 여부”와 “의사결정에 쓸 수 있는 의미가 생겼는가”로 구분합니다.</p>
+          <div class="flow">
+            <span class="flow-step">주문 수량<br><small>원자료</small></span>
+            <span class="flow-step">월별 판매량 집계<br><small>가공</small></span>
+            <span class="flow-step">베스트셀러 판단<br><small>정보 활용</small></span>
+          </div>
+        </div>
+
+        <div class="concept-block">
+          <span class="lecture-kicker">DIKW</span>
+          <h3>Data → Information → Knowledge → Wisdom</h3>
+          <p>DIKW는 아래로 갈수록 원자료에 가깝고, 위로 갈수록 판단과 실행에 가까워집니다. 지식은 정보 간 관계와 원리를 이해한 상태이고, 지혜는 그 지식을 상황에 맞게 적용하는 판단력입니다.</p>
+          <div class="pyramid" aria-label="DIKW 피라미드">
+            <div class="pyramid-step">Wisdom: 상황에 맞는 판단</div>
+            <div class="pyramid-step">Knowledge: 관계와 원리 이해</div>
+            <div class="pyramid-step">Information: 목적에 맞게 가공된 의미</div>
+            <div class="pyramid-step">Data: 관찰·측정된 사실</div>
+          </div>
+        </div>
+
+        <div class="concept-block">
+          <span class="lecture-kicker">데이터 유형</span>
+          <h3>정형·반정형·비정형</h3>
+          <div class="visual-split">
+            <div class="example-card"><strong>정형</strong><p>행과 열 구조가 명확한 고객 테이블, 거래 테이블.</p></div>
+            <div class="example-card"><strong>반정형</strong><p>HTML, XML, JSON처럼 태그·메타데이터가 있는 자료.</p></div>
+            <div class="example-card"><strong>비정형</strong><p>SNS 글, 이미지, 영상, 음성처럼 고정 스키마가 약한 자료.</p></div>
+          </div>
+          <p class="exam-note">영상에서는 사례 구분이 자주 출제된다고 강조합니다. “데이터베이스에 저장된 행·열”은 정형, “태그나 메타데이터”는 반정형, “영상·음성·자유 텍스트”는 비정형으로 빠르게 판단합니다.</p>
+        </div>
+
+        <div class="concept-block">
+          <span class="lecture-kicker">저장소</span>
+          <h3>DB, DBMS, 메타데이터, DW, 데이터 레이크</h3>
+          <table>
+            <thead><tr><th>개념</th><th>시험식 구분</th><th>주의점</th></tr></thead>
+            <tbody>
+              <tr><td>데이터베이스</td><td>공용·통합·저장·변화 데이터</td><td>여러 사용자가 공동 이용</td></tr>
+              <tr><td>DBMS</td><td>DB를 관리하는 소프트웨어</td><td>저장, 검색, 갱신, 권한, 무결성 관리</td></tr>
+              <tr><td>메타데이터</td><td>데이터를 설명하는 데이터</td><td>데이터 사전, 스키마와 연결</td></tr>
+              <tr><td>데이터웨어하우스</td><td>전사 분석용 통합 저장소</td><td>주제 중심, 통합, 시계열, 비휘발</td></tr>
+              <tr><td>데이터 레이크</td><td>정형·비정형을 원천에 가깝게 저장</td><td>DW보다 형식 제약이 약함</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="concept-block">
+          <span class="lecture-kicker">빅데이터</span>
+          <h3>3V, 가치 패러다임, 위기 요인</h3>
+          <div class="visual-split">
+            <div class="example-card"><strong>Volume</strong><p>처리해야 할 데이터 양이 매우 큼.</p></div>
+            <div class="example-card"><strong>Velocity</strong><p>발생·수집·처리 속도가 빠름.</p></div>
+            <div class="example-card"><strong>Variety</strong><p>정형, 반정형, 비정형이 함께 존재.</p></div>
+          </div>
+          <div class="flow">
+            <span class="flow-step">Digitalization</span>
+            <span class="flow-step">Connection</span>
+            <span class="flow-step">Agency</span>
+          </div>
+          <p>위기 요인은 <span class="key-term">사생활 침해</span>, <span class="key-term">책임 원칙 훼손</span>, <span class="key-term">데이터 오용</span>을 중심으로 정리합니다. 데이터 3법과 비식별 처리도 함께 묶어 암기합니다.</p>
+        </div>
+      </section>
+
+      <section id="subject2" class="section">
+        <h2>2과목 데이터 분석 기획</h2>
+        <div class="concept-block">
+          <span class="lecture-kicker">방법론</span>
+          <h3>방법론 구성 요소와 개발 모델</h3>
+          <p>방법론은 “어떤 절차로, 어떤 방법·도구·기법을 쓰고, 어떤 산출물이 나오는가”를 정리한 체계입니다.</p>
+          <table>
+            <thead><tr><th>모델</th><th>핵심</th><th>시험 포인트</th></tr></thead>
+            <tbody>
+              <tr><td>폭포수</td><td>위에서 아래로 순차 진행</td><td>되돌아가기 어려움</td></tr>
+              <tr><td>프로토타입</td><td>일부 모델을 먼저 만들고 피드백 반영</td><td>요구사항 불명확할 때 유용</td></tr>
+              <tr><td>나선형</td><td>반복하면서 점진적으로 완성</td><td>위험 요소 제거 강조</td></tr>
+              <tr><td>애자일</td><td>짧은 주기의 반복 개발</td><td>지속적 피드백 반영</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="concept-block">
+          <span class="lecture-kicker">순서 암기</span>
+          <h3>KDD, CRISP-DM, 빅데이터 분석 방법론</h3>
+          <div class="flow">
+            <span class="flow-step">KDD<br><small>선택</small></span>
+            <span class="flow-step">전처리</span>
+            <span class="flow-step">변환</span>
+            <span class="flow-step">마이닝</span>
+            <span class="flow-step">평가</span>
+          </div>
+          <p><span class="key-term">CRISP-DM</span>은 업무 이해, 데이터 이해, 데이터 준비, 모델링, 평가, 전개 순서입니다. 영상에서는 “모델 작성 및 평가는 모델링 단계”라는 함정과, 평가 후 전개 과정에서 다시 업무 이해로 돌아갈 수 있다는 점을 강조합니다.</p>
+          <p><span class="key-term">빅데이터 분석 방법론</span>은 단계-태스크-스텝의 계층 구조를 기반으로 하며, 분석 기획, 데이터 준비, 데이터 분석, 시스템 구현, 평가 및 전개 흐름으로 정리합니다.</p>
+        </div>
+
+        <div class="concept-block">
+          <span class="lecture-kicker">과제 발굴</span>
+          <h3>하향식·상향식·혼합 접근</h3>
+          <table>
+            <thead><tr><th>접근법</th><th>출발점</th><th>연결 개념</th></tr></thead>
+            <tbody>
+              <tr><td>하향식</td><td>문제와 목표가 먼저 있음</td><td>문제 탐색 → 문제 정의 → 해결방안 탐색 → 타당성 검토</td></tr>
+              <tr><td>상향식</td><td>문제 정의가 어려움</td><td>데이터 탐색, 비지도학습, 프로토타이핑</td></tr>
+              <tr><td>혼합</td><td>발산과 수렴을 함께 사용</td><td>디자인 싱킹</td></tr>
+            </tbody>
+          </table>
+          <p class="exam-note">상향식은 “정답이 없는 문제”와 연결되어 비지도학습이 자주 붙습니다. 하향식은 비즈니스 문제에서 출발합니다.</p>
+        </div>
+
+        <div class="concept-block">
+          <span class="lecture-kicker">마스터 플랜</span>
+          <h3>우선순위, 로드맵, 거버넌스</h3>
+          <p>IT 프로젝트 우선순위는 전략적 중요도와 실행 용이성 관점으로 보고, 데이터 분석 과제는 <span class="key-term">시급성</span>과 <span class="key-term">난이도</span> 관점으로 봅니다. 시급성은 비즈니스 효과, 난이도는 데이터 양·속도·다양성과 같은 3V 관점과 연결됩니다.</p>
+          <div class="axis-grid" aria-label="우선순위 매트릭스">
+            <div class="axis-head">구분</div><div class="axis-head">난이도 낮음</div><div class="axis-head">난이도 높음</div>
+            <div class="axis-head">시급성 높음</div><div><span class="key-term">우선 추진</span><br>빠른 성과 과제</div><div>전략 과제<br>자원 확보 필요</div>
+            <div class="axis-head">시급성 낮음</div><div>후순위 검토</div><div>보류 또는 재정의</div>
+          </div>
+          <p>분석 거버넌스는 조직, 프로세스, 시스템, 데이터, 교육·마인드 체계를 포함합니다. 데이터 거버넌스는 원칙, 조직, 프로세스를 중심으로 표준·품질·보안·메타데이터·마스터데이터를 관리합니다.</p>
+        </div>
+      </section>
+
+      <section id="memory" class="section">
+        <h2>시험 직전 암기표</h2>
+        <table>
+          <thead><tr><th>구분</th><th>반드시 볼 내용</th></tr></thead>
+          <tbody>
+            <tr><td>1과목</td><td>데이터/정보, DIKW, 정형·반정형·비정형, DB 4특성, DW와 데이터 레이크, 빅데이터 3V, 위기 요인</td></tr>
+            <tr><td>2과목</td><td>KDD 순서, CRISP-DM 순서, 모델링 단계의 모델 작성·평가, 하향식/상향식, 우선순위 매트릭스, 분석 준비도·성숙도</td></tr>
+            <tr><td>함정</td><td>평가라는 단어가 있어도 “모델 작성 및 평가”는 CRISP-DM의 모델링 단계, DW는 운영 트랜잭션 처리가 핵심이 아님</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="questions" class="section">
+        <h2>강의 기반 예상문제</h2>
+        <ol>
+          <li>데이터와 정보를 구분하는 가장 중요한 기준은 무엇인가?</li>
+          <li>DIKW에서 지식과 지혜의 차이를 설명하라.</li>
+          <li>JSON과 XML이 반정형 데이터로 분류되는 이유는 무엇인가?</li>
+          <li>데이터웨어하우스와 데이터 레이크의 차이를 설명하라.</li>
+          <li>빅데이터 3V와 위기 요인 3가지를 쓰라.</li>
+          <li>CRISP-DM에서 데이터 준비와 모델링 사이의 관계를 설명하라.</li>
+          <li>상향식 접근법이 비지도학습과 연결되는 이유를 설명하라.</li>
+          <li>분석 과제 우선순위에서 시급성과 난이도는 각각 어떤 관점인가?</li>
+        </ol>
+      </section>
+    </article>
+  </main>
+
+  <script src="../assets/auth.js"></script>
+</body>
+</html>

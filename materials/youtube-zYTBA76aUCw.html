@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>유튜브 강의 요약 - ADsP 3과목</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="note-page lecture-page">
+  <header class="site-header">
+    <div class="header-inner">
+      <h1>유튜브 강의 요약 - ADsP 3과목</h1>
+      <p>3과목 데이터 분석 영상의 한국어 자동자막을 바탕으로 시험 대비 핵심만 재구성했습니다.</p>
+      <div class="top-actions">
+        <a class="button secondary" href="../index.html">메인으로 돌아가기</a>
+        <a class="button secondary" href="./index.html">source 자료실</a>
+        <a class="button primary" href="./youtube-adsp-student-notes.html">통합 필기노트</a>
+        <a class="button secondary" href="../source/youtube_zYTBA76aUCw_transcript.md">추출 자막 보기</a>
+      </div>
+      <div class="auth-status" data-auth-status data-login="../account/login.html" data-profile="../account/profile.html"></div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="lecture-hero">
+      <div>
+        <span class="lecture-kicker">YouTube transcript</span>
+        <h2>3과목은 “공식 + 해석 + 모델 구분”이 핵심</h2>
+        <p>자동자막의 오탈자는 정리 과정에서 바로잡고, 시험에서 보기로 자주 바뀌는 표현을 중심으로 요약했습니다.</p>
+      </div>
+      <div class="lecture-score">
+        <strong>3과목</strong>
+        <span>데이터 마트, 통계, 회귀, 분류, 군집, 연관</span>
+      </div>
+    </section>
+
+    <nav class="lecture-nav" aria-label="3과목 요약 목차">
+      <a href="#prep">전처리와 변수</a>
+      <a href="#stats">통계와 추론</a>
+      <a href="#model">모델링</a>
+      <a href="#mining">데이터마이닝</a>
+    </nav>
+
+    <article>
+      <section id="prep" class="section">
+        <h2>전처리와 변수</h2>
+        <div class="concept-block">
+          <span class="lecture-kicker">데이터 마트</span>
+          <h3>요약 변수와 파생 변수</h3>
+          <p><span class="key-term">요약 변수</span>는 일정 기간 구매금액 평균처럼 정보를 집계한 변수이고, <span class="key-term">파생 변수</span>는 고객 등급처럼 논리적 규칙으로 새 의미를 만든 변수입니다.</p>
+        </div>
+        <div class="concept-block">
+          <span class="lecture-kicker">결측·이상</span>
+          <h3>결측치와 이상치 처리</h3>
+          <p>결측치는 삭제, 평균 대치, 조건부 평균 대치, 확률 대치 등을 사용합니다. 이상치는 오류일 수도 있고 의미 있는 극단값일 수도 있으므로 업무 맥락 확인이 먼저입니다.</p>
+          <p class="exam-note">상자그림 기반 이상치 탐지는 평균·표준편차가 아니라 사분위수와 IQR 기준이라는 함정이 자주 나옵니다.</p>
+        </div>
+      </section>
+
+      <section id="stats" class="section">
+        <h2>통계와 추론</h2>
+        <div class="formula-grid">
+          <div class="formula-card"><strong>표준화</strong><span class="formula">Z = (X - μ) / σ</span></div>
+          <div class="formula-card"><strong>변동계수</strong><span class="formula">CV = 표준편차 / 평균</span></div>
+          <div class="formula-card"><strong>조건부확률</strong><span class="formula">P(A|B) = P(A∩B) / P(B)</span></div>
+        </div>
+        <p>추론통계는 표본으로 모집단을 추정하거나 검정하는 영역입니다. 중심극한정리는 표본평균의 분포가 표본 크기가 커질수록 정규분포에 가까워진다는 개념으로 연결됩니다.</p>
+      </section>
+
+      <section id="model" class="section">
+        <h2>모델링</h2>
+        <table>
+          <thead><tr><th>기법</th><th>핵심</th><th>시험 포인트</th></tr></thead>
+          <tbody>
+            <tr><td>회귀분석</td><td>독립변수로 종속변수 설명·예측</td><td>SSE, 결정계수, 잔차 진단</td></tr>
+            <tr><td>다중회귀</td><td>독립변수가 여러 개</td><td>다중공선성, 변수 선택</td></tr>
+            <tr><td>로지스틱 회귀</td><td>범주형 결과의 확률 예측</td><td>분류 문제에 사용</td></tr>
+            <tr><td>PCA</td><td>상관 높은 변수의 선형결합으로 차원 축소</td><td>뒤 주성분일수록 설명분산은 감소</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="mining" class="section">
+        <h2>데이터마이닝</h2>
+        <div class="visual-split">
+          <div class="example-card"><strong>분류</strong><p>로지스틱 회귀, KNN, 나이브 베이즈, 의사결정나무, SVM, 신경망.</p></div>
+          <div class="example-card"><strong>군집</strong><p>정답 없이 거리·유사도로 묶음. K-means, 계층적 군집, DBSCAN.</p></div>
+          <div class="example-card"><strong>연관</strong><p>장바구니 규칙. 지지도, 신뢰도, 향상도를 구분.</p></div>
+        </div>
+        <p class="exam-note">연관분석은 “지신향”으로 암기합니다. 지지도는 동시 포함 비율, 신뢰도는 A가 있을 때 B도 있는 비율, 향상도는 독립 대비 연관 강도입니다.</p>
+      </section>
+    </article>
+  </main>
+
+  <script src="../assets/auth.js"></script>
+</body>
+</html>

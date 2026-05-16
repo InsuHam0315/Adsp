@@ -489,6 +489,28 @@ select {
   font-weight: 700;
 }
 
+.score-summary {
+  margin: 10px 0 16px;
+  padding: 16px;
+  border: 1px solid rgba(91, 214, 201, 0.34);
+  border-radius: 8px;
+  background: #0d1724;
+  color: var(--ink);
+  box-shadow: var(--shadow);
+}
+
+.score-summary h3 {
+  margin: 0 0 12px;
+  color: var(--primary-strong);
+}
+
+.score-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
 table {
   width: 100%;
   border-collapse: collapse;

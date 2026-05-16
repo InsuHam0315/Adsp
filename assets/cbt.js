@@ -222,6 +222,7 @@
       answeredAt: new Date().toISOString()
     });
     render();
+    showFinalResultIfComplete();
   }
 
   function render() {
@@ -283,6 +284,70 @@
     }
   }
 
+  function buildScoreSummary(list) {
+    var subjectStats = {};
+    var answered = list.filter(function (question) {
+      return state.checked[question.id];
+    });
+    var correct = answered.filter(function (question) {
+      return state.answers[question.id] === question.answer;
+    });
+
+    list.forEach(function (question) {
+      if (!subjectStats[question.subject]) {
+        subjectStats[question.subject] = { total: 0, answered: 0, correct: 0 };
+      }
+      subjectStats[question.subject].total += 1;
+      if (state.checked[question.id]) {
+        subjectStats[question.subject].answered += 1;
+        if (state.answers[question.id] === question.answer) {
+          subjectStats[question.subject].correct += 1;
+        }
+      }
+    });
+
+    return {
+      total: list.length,
+      answered: answered.length,
+      correct: correct.length,
+      rate: answered.length ? Math.round((correct.length / answered.length) * 100) : 0,
+      subjectStats: subjectStats
+    };
+  }
+
+  function renderScoreSummary(list, title) {
+    var summary = buildScoreSummary(list);
+    var subjectRows = Object.keys(summary.subjectStats).sort(function (a, b) {
+      return a.localeCompare(b, "ko");
+    }).map(function (subject) {
+      var item = summary.subjectStats[subject];
+      var subjectRate = item.answered ? Math.round((item.correct / item.answered) * 100) : 0;
+      return "<tr><td>" + escapeHtml(subject) + "</td><td>" + item.answered + " / " + item.total + "</td><td>" + item.correct + "</td><td>" + subjectRate + "%</td></tr>";
+    }).join("");
+
+    byId("scoreResult").innerHTML = [
+      '<div class="score-summary">',
+      "<h3>" + escapeHtml(title) + "</h3>",
+      '<div class="score-metrics">',
+      '<div class="metric"><strong>' + summary.correct + " / " + summary.total + '</strong><span>전체 정답</span></div>',
+      '<div class="metric"><strong>' + summary.rate + '%</strong><span>정답률</span></div>',
+      '<div class="metric"><strong>' + summary.answered + " / " + summary.total + '</strong><span>확인 완료</span></div>',
+      "</div>",
+      "<table><thead><tr><th>과목</th><th>풀이</th><th>정답</th><th>정답률</th></tr></thead><tbody>",
+      subjectRows,
+      "</tbody></table>",
+      summary.answered < summary.total ? '<p class="footer-note">아직 정답 확인을 누르지 않은 문제가 있습니다.</p>' : "",
+      "</div>"
+    ].join("");
+  }
+
+  function showFinalResultIfComplete() {
+    var list = filteredQuestions();
+    if (list.length && list.every(function (question) { return state.checked[question.id]; })) {
+      renderScoreSummary(list, "전체 결과");
+    }
+  }
+
   function bindActions() {
     ensureShuffleButton();
     byId("singleMode").addEventListener("click", function () {
@@ -317,10 +382,7 @@
     });
     byId("scoreButton").addEventListener("click", function () {
       var list = filteredQuestions();
-      var answered = list.filter(function (q) { return state.answers[q.id]; });
-      var correct = answered.filter(function (q) { return state.answers[q.id] === q.answer; });
-      var rate = answered.length ? Math.round((correct.length / answered.length) * 100) : 0;
-      byId("scoreResult").textContent = "현재 필터 기준 " + answered.length + "문항 풀이, " + correct.length + "문항 정답, 정답률 " + rate + "%";
+      renderScoreSummary(list, "현재 필터 기준 결과");
     });
     byId("resetButton").addEventListener("click", function () {
       state.answers = {};

@@ -46,7 +46,7 @@
 
 `ADsP_완벽대비요약노트_260103-unlocked.pdf`는 텍스트 추출이 가능해 `materials/pdf-summary.html`과 과목별 개념노트 보강에 반영했습니다. 기존 암호화 PDF는 중복 원본으로 보관만 하며 커밋하지 않습니다.
 
-추가로 PDF 원본 텍스트를 직접 확인해 `data/adsp_pdf_hard_questions.js`와 `cbt/adsp_pdf_hard_cbt.html`을 만들었습니다. 이 문제집은 실제 시험 비율처럼 1과목 10문항, 2과목 10문항, 3과목 30문항으로 구성했고, 혼동행렬·연관분석·거리계산·PCA 등 표 해석형 문제를 포함합니다.
+추가로 PDF 원본 텍스트를 직접 확인해 `data/adsp_pdf_hard_questions.js`, `data/adsp_pdf_hard_02_questions.js`, `data/adsp_pdf_hard_03_questions.js`와 대응 CBT 페이지를 만들었습니다. 각 문제집은 실제 시험 비율처럼 1과목 10문항, 2과목 10문항, 3과목 30문항으로 구성했고, 혼동행렬·연관분석·거리계산·PCA 등 표 해석형 문제를 포함합니다.
 
 ## 공개 웹 복원 후보 처리 상태
 

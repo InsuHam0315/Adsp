@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ADsP PDF 심화 CBT 03회</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 id="pageTitle">ADsP PDF 심화 CBT 03회</h1>
+      <p>source PDF 원본 범위를 바탕으로 1·2·3과목을 실제 시험 비율 10·10·30으로 재구성한 추가 심화 문제집입니다.</p>
+      <div class="top-actions">
+        <a class="button secondary" href="../index.html">메인으로 돌아가기</a>
+        <a class="button secondary" href="../cbt/adsp_pdf_hard_02_cbt.html">이전 PDF 심화 CBT</a>
+        <a class="button secondary" href="../materials/pdf-summary.html">PDF 요약노트</a>
+        <a class="button secondary" href="../review/wrong-notes.html">오답노트</a>
+        <a class="button secondary" href="../stats/study-record.html">학습기록</a>
+      </div>
+      <div class="auth-status" data-auth-status data-login="../account/login.html" data-profile="../account/profile.html"></div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="section notice">
+      <h2>출처와 구성</h2>
+      <p><strong>source/ADsP_완벽대비요약노트_260103-unlocked.pdf</strong> 원본 텍스트를 직접 확인해 만든 추가 심화 세트입니다. 1과목 10문항, 2과목 10문항, 3과목 30문항이며 기존 PDF 심화 CBT와 다른 문항으로 구성했습니다.</p>
+    </section>
+
+    <section class="section">
+      <div class="toolbar">
+        <label>과목 필터
+          <select id="subjectFilter"></select>
+        </label>
+        <label>카테고리 필터
+          <select id="categoryFilter"></select>
+        </label>
+        <div class="segmented" aria-label="보기 방식">
+          <button type="button" id="singleMode">한 문제씩 보기</button>
+          <button type="button" id="allMode">전체 문제 풀기</button>
+        </div>
+        <button type="button" id="prevQuestion">이전</button>
+        <button type="button" id="nextQuestion">다음</button>
+        <button type="button" id="scoreButton" class="primary">점수 계산</button>
+        <button type="button" id="resetButton">다시 풀기</button>
+      </div>
+      <p id="cbtSummary" class="result-line"></p>
+      <p id="scoreResult" class="result-line"></p>
+      <div id="numberNav" class="number-nav" aria-label="문제 번호 이동"></div>
+      <div id="questionShell" class="question-shell"></div>
+    </section>
+  </main>
+
+  <script src="../assets/storage.js"></script>
+  <script src="../data/adsp_pdf_hard_03_questions.js"></script>
+  <script>
+    window.ADSP_CBT_CONFIG = {
+      title: "ADsP PDF 심화 CBT 03회",
+      questions: window.ADSP_PDF_HARD_03_QUESTIONS
+    };
+  </script>
+  <script src="../assets/cbt.js"></script>
+  <script src="../assets/auth.js"></script>
+</body>
+</html>

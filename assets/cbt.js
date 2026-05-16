@@ -255,7 +255,36 @@
     byId("allMode").classList.toggle("active", state.mode === "all");
   }
 
+  function ensureShuffleButton() {
+    if (byId("shuffleButton")) {
+      return;
+    }
+    var button = document.createElement("button");
+    button.type = "button";
+    button.id = "shuffleButton";
+    button.className = "secondary";
+    button.textContent = "문제 섞기";
+
+    var nextButton = byId("nextQuestion");
+    var toolbar = nextButton ? nextButton.parentNode : document.querySelector(".toolbar");
+    if (nextButton && toolbar) {
+      toolbar.insertBefore(button, nextButton.nextSibling);
+    } else if (toolbar) {
+      toolbar.appendChild(button);
+    }
+  }
+
+  function shuffleQuestions() {
+    for (var index = questions.length - 1; index > 0; index -= 1) {
+      var swapIndex = Math.floor(Math.random() * (index + 1));
+      var temp = questions[index];
+      questions[index] = questions[swapIndex];
+      questions[swapIndex] = temp;
+    }
+  }
+
   function bindActions() {
+    ensureShuffleButton();
     byId("singleMode").addEventListener("click", function () {
       state.mode = "single";
       updateModeButtons();
@@ -275,6 +304,14 @@
     byId("nextQuestion").addEventListener("click", function () {
       state.current = Math.min(filteredQuestions().length - 1, state.current + 1);
       state.mode = "single";
+      updateModeButtons();
+      render();
+    });
+    byId("shuffleButton").addEventListener("click", function () {
+      shuffleQuestions();
+      state.current = 0;
+      state.mode = "single";
+      byId("scoreResult").textContent = "문제 순서를 무작위로 섞었습니다. 선택한 답과 오답 기록은 문제 ID 기준으로 유지됩니다.";
       updateModeButtons();
       render();
     });

@@ -22,45 +22,53 @@
 
   <main class="container">
     <section class="section">
-      <p class="lead">과목별 개념노트, 기본 CBT, 모의고사, 오답노트, 학습기록을 한 곳에서 관리하는 순수 HTML/CSS/JavaScript 정적 사이트입니다.</p>
+      <p class="lead">강의노트로 개념을 잡고, 시험 메뉴에서 CBT와 모의고사를 바로 풀 수 있게 구성했습니다. 오답노트와 학습기록은 하단 토글 메뉴에서 관리합니다.</p>
     </section>
 
     <section class="section">
-      <h2>학습 메뉴</h2>
-      <div class="grid">
-        <a class="card" href="./notes/index.html">
-          <h3>ADsP 개념정리</h3>
-          <p>데이터 이해, 데이터 분석 기획, 데이터 분석 과목별 핵심을 정리합니다.</p>
+      <h2>강의노트</h2>
+      <div class="grid feature-grid">
+        <a class="card feature-card" href="./notes/index.html">
+          <h3>과목별 개념노트</h3>
+          <p>1과목 데이터 이해, 2과목 데이터 분석 기획, 3과목 데이터 분석을 강의노트처럼 정리했습니다.</p>
         </a>
-        <a class="card" href="./cbt/adsp_basic_cbt.html">
+        <a class="card feature-card" href="./materials/pdf-summary.html">
+          <h3>PDF 기반 요약노트</h3>
+          <p>source PDF에서 확인한 출제 범위를 원문 복제 없이 요약·시각화한 보조 노트입니다.</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>시험</h2>
+      <div class="grid feature-grid">
+        <a class="card feature-card" href="./cbt/adsp_basic_cbt.html">
           <h3>ADsP 기본 CBT</h3>
           <p>핵심 개념을 점검하는 50문항 객관식 문제 풀이입니다.</p>
         </a>
-        <a class="card" href="./cbt/adsp_mock_01.html">
+        <a class="card feature-card" href="./cbt/adsp_mock_01.html">
           <h3>ADsP 모의고사 1회</h3>
-          <p>실제 시험 흐름에 맞춘 50문항 모의고사입니다.</p>
+          <p>시험 흐름에 맞춰 재구성한 50문항 모의고사입니다.</p>
         </a>
-        <a class="card" href="./review/wrong-notes.html">
-          <h3>오답노트</h3>
-          <p>틀린 문제를 과목별로 다시 확인하고 복습합니다.</p>
-        </a>
-        <a class="card" href="./stats/study-record.html">
-          <h3>학습기록</h3>
-          <p>풀이 수, 정답률, 최근 풀이 로그를 브라우저에 저장합니다.</p>
-        </a>
-        <a class="card" href="./materials/index.html">
-          <h3>source 자료실</h3>
-          <p>source 폴더에 있는 ADsP 자료의 반영 상태와 수동 검수 대상을 확인합니다.</p>
-        </a>
-        <a class="card" href="./materials/pdf-summary.html">
-          <h3>PDF 기반 요약</h3>
-          <p>source PDF에서 확인한 출제 범위를 원문 복제 없이 체크리스트로 정리했습니다.</p>
-        </a>
-        <a class="card" href="./account/profile.html">
-          <h3>내 학습기록</h3>
-          <p>로그인한 로컬 계정 기준으로 학습기록과 오답 현황을 봅니다.</p>
+        <a class="card feature-card" href="./cbt/adsp_48_mock.html">
+          <h3>ADsP 48회 복원 모의고사</h3>
+          <p>source에 추가한 48회 복원 MD의 문제·정답을 기반으로 선지를 중상 난이도로 재구성했습니다.</p>
         </a>
       </div>
+    </section>
+
+    <section class="section support-panel">
+      <h2>내 학습 관리</h2>
+      <details class="toggle-list" open>
+        <summary>로그인/회원가입 및 학습기록 메뉴</summary>
+        <div class="quick-link-grid">
+          <a class="button secondary" href="./account/login.html">로그인/회원가입</a>
+          <a class="button secondary" href="./account/profile.html">내 학습기록</a>
+          <a class="button secondary" href="./review/wrong-notes.html">오답노트</a>
+          <a class="button secondary" href="./stats/study-record.html">학습기록</a>
+          <a class="button secondary" href="./materials/index.html">source 자료실</a>
+        </div>
+      </details>
     </section>
 
     <section class="section notice">

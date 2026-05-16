@@ -127,6 +127,46 @@ a:focus {
   background: #162235;
 }
 
+.feature-grid {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.feature-card {
+  min-height: 170px;
+}
+
+.support-panel {
+  margin-top: 34px;
+}
+
+.toggle-list {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.toggle-list summary {
+  cursor: pointer;
+  padding: 15px 18px;
+  background: #172638;
+  color: var(--primary-strong);
+  font-weight: 900;
+}
+
+.toggle-list summary:hover,
+.toggle-list summary:focus {
+  background: #1c2a3a;
+}
+
+.quick-link-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 10px;
+  padding: 16px;
+}
+
 .notice,
 .summary-box,
 .trap-box,

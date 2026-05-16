@@ -9,7 +9,7 @@
 | `4626.txt` | 0바이트 빈 TXT | 반영할 내용 없음 |
 | `48회 ADsP 1과목 복원 문제.md` | 문제·정답 50문항 MD | `data/adsp_48_questions.js`, `cbt/adsp_48_mock.html`에 반영 |
 | `ADsP_완벽대비요약노트_260103.pdf` | 암호화 PDF, 약 2MB | 빈 비밀번호로 열리지 않고 PyMuPDF에서 텍스트 추출 실패. 수동 검수 필요 |
-| `ADsP_완벽대비요약노트_260103-unlocked.pdf` | 해제본 PDF, 38쪽 | 사용자가 소유 자료로 공개 가능함을 확인. 자료실 링크와 요약 페이지에 반영 |
+| `ADsP_완벽대비요약노트_260103-unlocked.pdf` | 해제본 PDF, 38쪽 | 자료실 링크, 요약 페이지, PDF 원본 기반 심화 CBT에 반영 |
 | `youtube_rClfO1GdmFM_transcript.md` | 1·2과목 유튜브 자동자막 | `materials/youtube-rClfO1GdmFM.html`에 요약 반영 |
 | `youtube_zYTBA76aUCw_transcript.md` | 3과목 유튜브 자동자막 | `materials/youtube-zYTBA76aUCw.html`, 통합 필기노트에 반영 |
 | `web_sources.md` | 공개 웹 복원 후보 기록 | 44~47회 공개 복원 기반 CBT 재구성에 반영 |
@@ -45,6 +45,8 @@
 ## 현재 PDF 처리 상태
 
 `ADsP_완벽대비요약노트_260103-unlocked.pdf`는 텍스트 추출이 가능해 `materials/pdf-summary.html`과 과목별 개념노트 보강에 반영했습니다. 기존 암호화 PDF는 중복 원본으로 보관만 하며 커밋하지 않습니다.
+
+추가로 PDF 원본 텍스트를 직접 확인해 `data/adsp_pdf_hard_questions.js`와 `cbt/adsp_pdf_hard_cbt.html`을 만들었습니다. 이 문제집은 실제 시험 비율처럼 1과목 10문항, 2과목 10문항, 3과목 30문항으로 구성했고, 혼동행렬·연관분석·거리계산·PCA 등 표 해석형 문제를 포함합니다.
 
 ## 공개 웹 복원 후보 처리 상태
 

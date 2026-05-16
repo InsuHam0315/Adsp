@@ -13,6 +13,7 @@ adsp/
 ├─ cbt/
 │  ├─ adsp_basic_cbt.html
 │  ├─ adsp_mock_01.html
+│  ├─ adsp_pdf_hard_cbt.html
 │  ├─ adsp_48_mock.html
 │  ├─ adsp_web_44.html
 │  ├─ adsp_web_45.html
@@ -36,6 +37,7 @@ adsp/
 ├─ data/
 │  ├─ adsp_basic_questions.js
 │  ├─ adsp_mock_01_questions.js
+│  ├─ adsp_pdf_hard_questions.js
 │  ├─ adsp_48_questions.js
 │  ├─ adsp_web_44_questions.js
 │  ├─ adsp_web_45_questions.js
@@ -102,6 +104,8 @@ python -m http.server 8000
 7. 변환 후 사람이 반드시 검수
 
 현재 `source/ADsP_완벽대비요약노트_260103-unlocked.pdf`는 사용자가 소유 자료로 공개 가능함을 확인해 GitHub Pages 자료실에서 열 수 있게 했습니다. 기존 암호화 PDF는 중복 파일이므로 커밋 대상에서 제외합니다.
+
+`ADsP PDF 심화 CBT`는 `source/ADsP_완벽대비요약노트_260103-unlocked.pdf` 원본 텍스트를 직접 확인해 만든 50문항 문제집입니다. 실제 시험 비율에 맞춰 데이터 이해 10문항, 데이터 분석 기획 10문항, 데이터 분석 30문항으로 구성했고, 혼동행렬·연관분석·거리계산·PCA 같은 표 해석 문항을 포함합니다.
 
 공개 웹 복원 후보는 `source/web_sources.md`에 따로 기록했습니다. 44~47회 CBT는 확인한 공개 후보의 출제 키워드와 ADsP 공식 범위를 바탕으로 재구성한 학습용 문제이며, 실제 시험 원문·선지와 동일함을 보장하지 않습니다.
 

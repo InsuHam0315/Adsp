@@ -124,6 +124,7 @@
       '<span>' + (index + 1) + " / " + total + "</span>",
       "</div>",
       '<p class="question-text">' + escapeHtml(question.question) + "</p>",
+      renderQuestionSupplement(question),
       '<div class="choices">' + choices + "</div>",
       '<div class="question-actions">',
       '<button type="button" class="primary check-button"' + (selected && !isChecked ? "" : " disabled") + ">" + (isChecked ? "확인 완료" : "정답 확인") + "</button>",
@@ -145,6 +146,47 @@
     });
 
     return card;
+  }
+
+  function renderQuestionSupplement(question) {
+    var parts = [];
+    if (Array.isArray(question.context) && question.context.length) {
+      question.context.forEach(function (line) {
+        parts.push("<p>" + escapeHtml(line) + "</p>");
+      });
+    }
+    if (question.formula) {
+      var formulas = Array.isArray(question.formula) ? question.formula : [question.formula];
+      parts.push('<div class="formula-box">' + formulas.map(function (formula) {
+        return "<code>" + escapeHtml(formula) + "</code>";
+      }).join("") + "</div>");
+    }
+    if (question.table) {
+      parts.push(renderQuestionTable(question.table));
+    }
+    return parts.length ? '<div class="question-supplement">' + parts.join("") + "</div>" : "";
+  }
+
+  function renderQuestionTable(table) {
+    var headers = Array.isArray(table.headers) ? table.headers : [];
+    var rows = Array.isArray(table.rows) ? table.rows : [];
+    return [
+      '<div class="question-table-wrap">',
+      table.caption ? '<div class="question-table-caption">' + escapeHtml(table.caption) + "</div>" : "",
+      "<table>",
+      headers.length ? "<thead><tr>" + headers.map(function (header) {
+        return "<th>" + escapeHtml(header) + "</th>";
+      }).join("") + "</tr></thead>" : "",
+      "<tbody>",
+      rows.map(function (row) {
+        return "<tr>" + row.map(function (cell) {
+          return "<td>" + escapeHtml(cell) + "</td>";
+        }).join("") + "</tr>";
+      }).join(""),
+      "</tbody>",
+      "</table>",
+      "</div>"
+    ].join("");
   }
 
   function renderExplanation(question, selected, selectedIsCorrect) {
